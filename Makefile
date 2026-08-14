@@ -1,9 +1,11 @@
 # Every target the CI workflow runs exists here first, so local and CI are the
 # same commands. The free path (test, eval) needs no model download and no torch.
 
-PY ?= python3
 VENV = .venv
 BIN = $(VENV)/bin
+# Prefer the project venv once `make setup` has created it, so every target
+# sees pytest and the pinned deps without activation.
+PY ?= $(shell [ -x $(BIN)/python ] && echo $(BIN)/python || echo python3)
 
 .PHONY: setup run test test-slow eval eval-full readme-check svg-check ci docker-build docker-run clean
 
