@@ -20,7 +20,7 @@ structured_criteria:
   - 50
   - 80
 unstructured_criteria:
-- description: "Current smoker with \xE2\u2030\xA510 pack-year smoking history."
+- description: Current smoker with ≥10 pack-year smoking history.
   type: smoking_quantification
   condition: sufficient_history
   minimum_pack_years: 10
@@ -28,8 +28,8 @@ unstructured_criteria:
   - current
   - smoker
   - with
-  - "\xE2\u2030\xA510"
   - pack-year
+  - smoking
 - description: At least 2 previous quit attempts in past 5 years.
   type: behavioral_history
   condition: multiple_attempts
@@ -38,7 +38,7 @@ unstructured_criteria:
   - quit attempt
   - cessation
   - tried to quit
-- description: "High motivation to quit (\xE2\u2030\xA57/10)."
+- description: High motivation to quit (≥7/10).
   type: motivational_assessment
   condition: high_motivation
   threshold: 7
@@ -46,7 +46,7 @@ unstructured_criteria:
   - high
   - motivation
   - quit
-  - "(\xE2\u2030\xA57/10)."
+  - (≥7/10).
 - description: Occupational or environmental smoke exposure history.
   type: exposure_history
   condition: documented_exposure

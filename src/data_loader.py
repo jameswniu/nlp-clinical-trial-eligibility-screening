@@ -133,7 +133,7 @@ def attach_notes_to_patients(patients: dict, notes_dir: str):
 
 
 def build_patient_profiles(patients_csv: str, labs_csv: str,
-                           notes_dir="assignment_data/clinical_notes") -> dict:
+                           notes_dir="data/clinical_notes") -> dict:
     """Return unified patient profiles keyed by patient_id."""
     patients = load_patients(patients_csv)
     labs_df = load_lab_results(labs_csv)
@@ -144,9 +144,9 @@ def build_patient_profiles(patients_csv: str, labs_csv: str,
 
 if __name__ == "__main__":
     BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-    patients_csv = os.path.join(BASE_DIR, "assignment_data", "patients.csv")
-    labs_csv = os.path.join(BASE_DIR, "assignment_data", "lab_results.csv")
-    notes_dir = os.path.join(BASE_DIR, "assignment_data", "clinical_notes")
+    patients_csv = os.path.join(BASE_DIR, "data", "patients.csv")
+    labs_csv = os.path.join(BASE_DIR, "data", "lab_results.csv")
+    notes_dir = os.path.join(BASE_DIR, "data", "clinical_notes")
 
     profiles = build_patient_profiles(patients_csv, labs_csv, notes_dir)
     print("Loaded profiles:", len(profiles))

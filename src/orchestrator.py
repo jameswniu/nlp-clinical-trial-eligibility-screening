@@ -89,10 +89,10 @@ def run_workflow(patients_csv: str, labs_csv: str, notes_dir: str,
 
 if __name__ == "__main__":
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    patients_csv = os.path.join(BASE_DIR, "assignment_data", "patients.csv")
-    labs_csv = os.path.join(BASE_DIR, "assignment_data", "lab_results.csv")
-    notes_dir = os.path.join(BASE_DIR, "assignment_data", "clinical_notes")
-    protocols_dir = os.path.join(BASE_DIR, "assignment_data")
+    patients_csv = os.path.join(BASE_DIR, "data", "patients.csv")
+    labs_csv = os.path.join(BASE_DIR, "data", "lab_results.csv")
+    notes_dir = os.path.join(BASE_DIR, "data", "clinical_notes")
+    protocols_dir = os.path.join(BASE_DIR, "data")
     outputs_dir = os.path.join(BASE_DIR, "output")
 
     os.makedirs(outputs_dir, exist_ok=True)

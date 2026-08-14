@@ -1,7 +1,7 @@
 """
 protocol_sorter.py
 
-Normalizes protocol YAMLs in assignment_data/.
+Normalizes protocol YAMLs in data/.
 - Wraps top-level lists under 'criteria:' if needed (to fix invalid YAML).
 - Splits criteria into structured_criteria and unstructured_criteria.
 - Logs unknown types so new protocol designs can be reviewed.
@@ -15,7 +15,7 @@ import os
 import yaml
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ASSIGNMENT_DIR = os.path.join(BASE_DIR, "assignment_data")
+DATA_DIR = os.path.join(BASE_DIR, "data")
 
 # Track unknown criterion types we encounter
 UNKNOWN_TYPES = set()
@@ -40,7 +40,7 @@ def classify_criterion(crit: dict) -> str:
 
 def fix_and_load_yaml(path: str):
     """Ensure YAML is valid by wrapping dangling lists under 'criteria:'."""
-    lines = open(path, "r").read().splitlines()
+    lines = open(path, "r", encoding="utf-8").read().splitlines()
     header, body = [], []
     hit_list = False
 
@@ -89,8 +89,8 @@ def normalize_file(in_path: str, out_path: str):
     proto_id = os.path.splitext(os.path.basename(in_path))[0]
     clean = normalize_protocol(raw, proto_id)
 
-    with open(out_path, "w") as f:
-        yaml.dump(clean, f, sort_keys=False)
+    with open(out_path, "w", encoding="utf-8") as f:
+        yaml.dump(clean, f, sort_keys=False, allow_unicode=True)
 
     print(
         f"Processed {os.path.basename(in_path)} → {os.path.basename(out_path)} "
@@ -100,7 +100,7 @@ def normalize_file(in_path: str, out_path: str):
     return clean
 
 
-def sort_protocols(in_dir: str = ASSIGNMENT_DIR) -> list:
+def sort_protocols(in_dir: str = DATA_DIR) -> list:
     """
     Normalize all protocol YAMLs in in_dir.
     Returns a list of cleaned protocol dicts for orchestrator.
