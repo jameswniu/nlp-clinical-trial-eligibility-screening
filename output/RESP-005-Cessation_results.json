@@ -104,7 +104,7 @@
     "is_eligible": false,
     "confidence_score": "NA",
     "evidence": {
-      "Age between 40 and 75 years (inclusive).": "PASS (age=54 in range 40-75)",
+      "Age between 40 and 75 years (inclusive).": "PASS (age=53 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
       "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.27)",

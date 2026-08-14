@@ -48,7 +48,9 @@ SEMANTIC_MAYBE = 0.1
 COSINE_PASS = 0.1
 COSINE_MAYBE_MARGIN = 0.05
 
-# Synonyms mapping for fuzzy mentions
+# Synonyms mapping for fuzzy mentions. Keys are LOWERCASE because query_notes
+# looks up concept.lower(); the original "CHF" key was unreachable, which made
+# every CHF synonym dead code (found by the test suite, 2026-08-14).
 SYNONYMS = {
     "diabetes": [
         "borderline sugar",
@@ -57,7 +59,7 @@ SYNONYMS = {
         "high blood sugar",
         "impaired glucose tolerance",
     ],
-    "CHF": [
+    "chf": [
         "congestive heart failure",
         "heart failure",
         "cardiac insufficiency",

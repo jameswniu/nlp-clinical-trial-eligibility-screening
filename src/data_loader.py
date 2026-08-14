@@ -28,12 +28,18 @@ CURRENT_DATE = datetime(2024, 5, 1)
 
 
 def calculate_age(dob: str) -> Optional[int]:
-    """Calculate patient age at CURRENT_DATE."""
+    """Calculate patient age at CURRENT_DATE.
+
+    Calendar arithmetic, not days // 365: the division form accumulates one
+    day per leap year and overstated age by 1 for patients whose birthday had
+    not yet arrived (patient_C001's note says 53; the old formula said 54).
+    """
     if pd.isna(dob):
         return None
     try:
-        birth_date = datetime.strptime(str(dob), "%Y-%m-%d")
-        return (CURRENT_DATE - birth_date).days // 365
+        birth = datetime.strptime(str(dob), "%Y-%m-%d")
+        return (CURRENT_DATE.year - birth.year
+                - ((CURRENT_DATE.month, CURRENT_DATE.day) < (birth.month, birth.day)))
     except Exception:
         return None
 
