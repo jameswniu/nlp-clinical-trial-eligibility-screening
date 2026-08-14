@@ -1,0 +1,23 @@
+# Hand-labelled exemplars for the semantic-match thresholds.
+# verdict = my judgment of whether the NOTE supports the criterion
+# (pass / uncertain / reject). measured = the score the shipped output
+# quotes for that exact (protocol, patient, criterion); derive.py fails
+# if any measured value stops appearing verbatim in output/.
+protocol,patient,criterion,axis,measured,verdict,why
+ONC-003-Prevention,patient_C001,Family history of cancer in first-degree relatives.,semantic_similarity,0.29,pass,note: mother with breast cancer
+ONC-003-Prevention,patient_C001,Moderate alcohol consumption within guidelines.,semantic_similarity,0.31,pass,note: drinks 2-3 glasses of wine per week
+ONC-003-Prevention,patient_C002,Moderate alcohol consumption within guidelines.,semantic_similarity,0.29,reject,note contains no alcohol content at all
+ONC-003-Prevention,patient_C002,Must be non-smoker for at least 5 years.,semantic_similarity,0.51,reject,"note says ACTIVE smoker, 18 pack-years; similarity cannot see negation"
+ONC-003-Prevention,patient_C010,Must be non-smoker for at least 5 years.,semantic_similarity,0.19,reject,"note says active smoker, 2 packs/day for 40+ years"
+ONC-003-Prevention,patient_C013,Family history of cancer in first-degree relatives.,semantic_similarity,0.10,reject,no family-history content in note
+ONC-003-Prevention,patient_C013,No personal history of malignancy.,semantic_similarity,0.10,uncertain,"absence criterion: note never mentions malignancy, which is weak support"
+RESP-005-Cessation,patient_C010,Occupational or environmental smoke exposure history.,semantic_similarity,0.12,pass,"note: 35 years as mechanic, solvents, asbestos brake pads, exhaust fumes"
+RESP-005-Cessation,patient_C016,Occupational or environmental smoke exposure history.,semantic_similarity,0.07,reject,no occupational content in note
+RESP-005-Cessation,patient_C023,Occupational or environmental smoke exposure history.,semantic_similarity,0.07,reject,no occupational content in note
+RESP-005-Cessation,patient_C024,Current smoker with ≥10 pack-year smoking history.,semantic_similarity,0.15,pass,"note: 2 packs daily, 40+ years, 80+ pack-years"
+RESP-005-Cessation,patient_C007,High motivation to quit (≥7/10).,semantic_similarity,0.36,pass,note: highly motivated to quit (8/10)
+RESP-005-Cessation,patient_C010,No recent major life stressors.,semantic_similarity,0.15,reject,note documents wife's death and financial difficulties; criterion asks their absence
+RESP-005-Cessation,patient_C007,No recent major life stressors.,semantic_similarity,0.16,uncertain,absence criterion; note has no stressor content beyond family concerns
+RESP-005-Cessation,patient_C016,Occupational or environmental smoke exposure history.,cosine_bow,0.04,reject,"same row, bag-of-words axis"
+RESP-005-Cessation,patient_C023,Occupational or environmental smoke exposure history.,cosine_bow,0.05,reject,"same row, bag-of-words axis"
+ONC-003-Prevention,patient_C013,No personal history of malignancy.,cosine_bow,0.05,uncertain,"same row, bag-of-words axis"

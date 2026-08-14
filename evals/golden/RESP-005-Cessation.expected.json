@@ -1,0 +1,502 @@
+[
+  {
+    "patient_id": "patient_C007",
+    "is_eligible": true,
+    "confidence_score": 0.962,
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=68 in range 40-75)",
+      "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.47)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.35)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.36)",
+      "Occupational or environmental smoke exposure history.": "PASS (semantic match for 'Occupational or environmental smoke exposure history.', score=0.26)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.22)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.32)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.20)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.50)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.16)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.16)"
+    }
+  },
+  {
+    "patient_id": "patient_C014",
+    "is_eligible": true,
+    "confidence_score": 0.962,
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=60 in range 40-75)",
+      "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.47)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.31)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.21)",
+      "Occupational or environmental smoke exposure history.": "PASS (semantic match for 'Occupational or environmental smoke exposure history.', score=0.23)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.22)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.43)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.38)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.58)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.15)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.21)"
+    }
+  },
+  {
+    "patient_id": "patient_C019",
+    "is_eligible": true,
+    "confidence_score": 0.962,
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=51 in range 40-75)",
+      "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.45)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.30)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.29)",
+      "Occupational or environmental smoke exposure history.": "PASS (semantic match for 'Occupational or environmental smoke exposure history.', score=0.31)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.27)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.40)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.31)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.54)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.18)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.29)"
+    }
+  },
+  {
+    "patient_id": "patient_C010",
+    "is_eligible": true,
+    "confidence_score": 0.923,
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=64 in range 40-75)",
+      "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.18)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.22)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.28)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak semantic match for 'Occupational or environmental smoke exposure history.', score=0.12)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.19)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.21)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.18)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.23)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.16)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.15)"
+    }
+  },
+  {
+    "patient_id": "patient_C024",
+    "is_eligible": true,
+    "confidence_score": 0.846,
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=62 in range 40-75)",
+      "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.15)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.22)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.24)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak semantic match for 'Occupational or environmental smoke exposure history.', score=0.13)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.18)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.20)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.25)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.23)",
+      "Stable psychiatric conditions.": "MAYBE (weak semantic match for 'Stable psychiatric conditions.', score=0.12)",
+      "No recent major life stressors.": "MAYBE (weak semantic match for 'No recent major life stressors.', score=0.14)"
+    }
+  },
+  {
+    "patient_id": "patient_C001",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=53 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.27)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.19)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.22)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak cosine match for 'Occupational or environmental smoke exposure history.', score=0.10)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.20)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.22)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.16)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.31)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.19)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.21)"
+    }
+  },
+  {
+    "patient_id": "patient_C002",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "FAIL (age=36 not in range 40-75)",
+      "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.58)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.35)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.35)",
+      "Occupational or environmental smoke exposure history.": "PASS (semantic match for 'Occupational or environmental smoke exposure history.', score=0.36)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.26)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.36)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.30)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.53)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.24)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.22)"
+    }
+  },
+  {
+    "patient_id": "patient_C003",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=58 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.25)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.22)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.23)",
+      "Occupational or environmental smoke exposure history.": "PASS (cosine match for 'Occupational or environmental smoke exposure history.', score=0.13)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.16)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.28)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.23)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.27)",
+      "Stable psychiatric conditions.": "MAYBE (weak semantic match for 'Stable psychiatric conditions.', score=0.15)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.21)"
+    }
+  },
+  {
+    "patient_id": "patient_C004",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=75 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.33)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.27)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.21)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak semantic match for 'Occupational or environmental smoke exposure history.', score=0.15)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.18)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.32)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.27)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.29)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.21)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.19)"
+    }
+  },
+  {
+    "patient_id": "patient_C005",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=45 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.30)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.25)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.26)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak semantic match for 'Occupational or environmental smoke exposure history.', score=0.11)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.16)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.35)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.30)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.37)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.22)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.24)"
+    }
+  },
+  {
+    "patient_id": "patient_C006",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=62 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.27)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.21)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.16)",
+      "Occupational or environmental smoke exposure history.": "PASS (cosine match for 'Occupational or environmental smoke exposure history.', score=0.13)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.17)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.31)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.27)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.36)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.19)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.25)"
+    }
+  },
+  {
+    "patient_id": "patient_C008",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=55 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.27)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.28)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.26)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak cosine match for 'Occupational or environmental smoke exposure history.', score=0.09)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.27)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.27)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.22)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.34)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.17)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.19)"
+    }
+  },
+  {
+    "patient_id": "patient_C009",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=49 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.29)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.20)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.21)",
+      "Occupational or environmental smoke exposure history.": "PASS (semantic match for 'Occupational or environmental smoke exposure history.', score=0.15)",
+      "Adequate social support system for quit attempt.": "MAYBE (weak semantic match for 'Adequate social support system for quit attempt.', score=0.14)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.33)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.27)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.36)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.16)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.23)"
+    }
+  },
+  {
+    "patient_id": "patient_C011",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=58 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.21)",
+      "At least 2 previous quit attempts in past 5 years.": "MAYBE (weak semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.11)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.19)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak cosine match for 'Occupational or environmental smoke exposure history.', score=0.09)",
+      "Adequate social support system for quit attempt.": "MAYBE (weak semantic match for 'Adequate social support system for quit attempt.', score=0.14)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.32)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.25)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.26)",
+      "Stable psychiatric conditions.": "MAYBE (weak semantic match for 'Stable psychiatric conditions.', score=0.14)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.21)"
+    }
+  },
+  {
+    "patient_id": "patient_C012",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=51 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.35)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.31)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.26)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak semantic match for 'Occupational or environmental smoke exposure history.', score=0.14)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.25)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.32)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.30)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.38)",
+      "Stable psychiatric conditions.": "MAYBE (weak semantic match for 'Stable psychiatric conditions.', score=0.13)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.19)"
+    }
+  },
+  {
+    "patient_id": "patient_C013",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=66 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.27)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.23)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.19)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak semantic match for 'Occupational or environmental smoke exposure history.', score=0.12)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.19)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.31)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.25)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.36)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.17)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.26)"
+    }
+  },
+  {
+    "patient_id": "patient_C015",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=52 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.33)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.24)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.28)",
+      "Occupational or environmental smoke exposure history.": "PASS (semantic match for 'Occupational or environmental smoke exposure history.', score=0.18)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.23)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.22)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.17)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.33)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.21)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.28)"
+    }
+  },
+  {
+    "patient_id": "patient_C016",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=69 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.25)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.24)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.23)",
+      "Occupational or environmental smoke exposure history.": "FAIL (no clear mention of 'Occupational or environmental smoke exposure history.', semantic=0.07, cosine=0.04)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.20)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.30)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.25)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.29)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.17)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.24)"
+    }
+  },
+  {
+    "patient_id": "patient_C017",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=56 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.30)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.21)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.26)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak semantic match for 'Occupational or environmental smoke exposure history.', score=0.14)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.18)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.30)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.23)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.36)",
+      "Stable psychiatric conditions.": "PASS (semantic match for 'Stable psychiatric conditions.', score=0.19)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.29)"
+    }
+  },
+  {
+    "patient_id": "patient_C018",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=63 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.24)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.20)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.20)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak cosine match for 'Occupational or environmental smoke exposure history.', score=0.09)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.24)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.30)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.27)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.30)",
+      "Stable psychiatric conditions.": "MAYBE (weak semantic match for 'Stable psychiatric conditions.', score=0.14)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.17)"
+    }
+  },
+  {
+    "patient_id": "patient_C020",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=67 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.24)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.22)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.19)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak semantic match for 'Occupational or environmental smoke exposure history.', score=0.10)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.20)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.26)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.28)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.26)",
+      "Stable psychiatric conditions.": "MAYBE (weak semantic match for 'Stable psychiatric conditions.', score=0.14)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.25)"
+    }
+  },
+  {
+    "patient_id": "patient_C021",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=54 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.30)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.18)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.22)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak semantic match for 'Occupational or environmental smoke exposure history.', score=0.11)",
+      "Adequate social support system for quit attempt.": "MAYBE (weak semantic match for 'Adequate social support system for quit attempt.', score=0.14)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.35)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.27)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.36)",
+      "Stable psychiatric conditions.": "MAYBE (weak semantic match for 'Stable psychiatric conditions.', score=0.11)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.22)"
+    }
+  },
+  {
+    "patient_id": "patient_C022",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=60 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.28)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.25)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.17)",
+      "Occupational or environmental smoke exposure history.": "PASS (semantic match for 'Occupational or environmental smoke exposure history.', score=0.17)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.22)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.32)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.27)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.33)",
+      "Stable psychiatric conditions.": "MAYBE (weak semantic match for 'Stable psychiatric conditions.', score=0.13)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.24)"
+    }
+  },
+  {
+    "patient_id": "patient_C023",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=48 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.25)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.19)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.18)",
+      "Occupational or environmental smoke exposure history.": "FAIL (no clear mention of 'Occupational or environmental smoke exposure history.', semantic=0.07, cosine=0.05)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.17)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.28)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.23)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.33)",
+      "Stable psychiatric conditions.": "MAYBE (weak semantic match for 'Stable psychiatric conditions.', score=0.12)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.19)"
+    }
+  },
+  {
+    "patient_id": "patient_C025",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Age between 40 and 75 years (inclusive).": "PASS (age=54 in range 40-75)",
+      "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
+      "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.27)",
+      "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.19)",
+      "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.18)",
+      "Occupational or environmental smoke exposure history.": "MAYBE (weak semantic match for 'Occupational or environmental smoke exposure history.', score=0.11)",
+      "Adequate social support system for quit attempt.": "PASS (semantic match for 'Adequate social support system for quit attempt.', score=0.18)",
+      "No active respiratory infections in past 4 weeks.": "PASS (semantic match for 'No active respiratory infections in past 4 weeks.', score=0.31)",
+      "No severe COPD or oxygen dependence.": "PASS (semantic match for 'No severe COPD or oxygen dependence.', score=0.20)",
+      "No recent smoking cessation medications (30 days).": "PASS (semantic match for 'No recent smoking cessation medications (30 days).', score=0.31)",
+      "Stable psychiatric conditions.": "MAYBE (weak semantic match for 'Stable psychiatric conditions.', score=0.14)",
+      "No recent major life stressors.": "PASS (semantic match for 'No recent major life stressors.', score=0.18)"
+    }
+  }
+]

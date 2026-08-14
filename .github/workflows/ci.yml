@@ -1,0 +1,92 @@
+# Two jobs, two claims.
+#
+# `checks` is the free gate: no torch, no model download, no network beyond pip.
+# It proves the deterministic core (comparisons, normalization, confidence
+# arithmetic, sorting), that the golden files still describe 50 decisions, that
+# every counted number in the README regenerates from the artifacts it cites,
+# and that the semantic thresholds still sit inside the interval their own
+# labelled exemplars imply.
+#
+# `eval-full` recomputes all 50 decisions with the real embedding model and
+# compares them to the goldens: decisions and per-criterion verdicts exactly,
+# scores to 0.02, because embedding stacks differ across builds.
+name: ci
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      # The embedding import is lazy and the fast tests inject a fake scorer,
+      # so this job installs everything except sentence-transformers (which
+      # would drag torch in).
+      - name: Install torch-free dependencies
+        run: |
+          grep -vE '^sentence-transformers' requirements.txt > /tmp/reqs-light.txt
+          pip install -r /tmp/reqs-light.txt pytest
+
+      - name: Import every src module on a fresh clone
+        run: |
+          set -e
+          for f in src/*.py; do
+            python -c "
+          import importlib.util
+          spec = importlib.util.spec_from_file_location('m', '$f')
+          m = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(m)
+          " || { echo "FAILED TO IMPORT: $f"; exit 1; }
+          done
+          echo "all src modules import without torch"
+
+      - name: Test suite
+        run: python -m pytest -m "not slow" -v
+
+      - name: Golden gate, dry run
+        run: python evals/suite.py --dry-run
+
+      - name: Thresholds still derive from their labelled exemplars
+        run: python evals/derive.py
+
+      - name: README numbers regenerate from the artifacts they cite
+        run: python tools/readme_numbers.py --check
+
+      - name: Every SVG parses as XML
+        run: |
+          python -c "import xml.etree.ElementTree as ET, glob; files = glob.glob('assets/*.svg'); assert files, 'no SVGs found'; [ET.parse(f) for f in files]; print(f'{len(files)} SVGs parse as XML')"
+
+  eval-full:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-paraphrase-minilm-l3-v2
+
+      - name: Install dependencies (CPU torch)
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt
+
+      - name: Recompute all 50 decisions against the goldens
+        run: python evals/suite.py --full
