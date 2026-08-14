@@ -18,7 +18,11 @@ def evaluate_structured(patient: dict, criteria: list) -> dict:
 
     for crit in criteria:
         desc = crit.get("description", str(crit))
-        field = crit.get("field") or crit.get("type")
+        # A lab criterion names its measurement in test_name (or metric), not
+        # in field. Resolving only field/type made every lab check abstain
+        # with "no data for lab_result" while the value sat in latest_labs.
+        field = (crit.get("field") or crit.get("test_name")
+                 or crit.get("metric") or crit.get("type"))
         op = crit.get("condition")
         value = crit.get("value")
         actual = None
@@ -91,21 +95,22 @@ def evaluate_structured(patient: dict, criteria: list) -> dict:
     return evidence
 
 
-def evaluate_unstructured(patient: dict, criteria: list) -> dict:
+def evaluate_unstructured(patient: dict, criteria: list, scorer=None) -> dict:
     evidence = {}
     notes = patient.get("notes", "")
 
     for crit in criteria:
         desc = crit.get("description", str(crit))
-        evidence[desc] = query_notes(notes, crit)
+        evidence[desc] = query_notes(notes, crit, scorer=scorer)
 
     return evidence
 
 
-def evaluate_patient(patient: dict, protocol: dict) -> dict:
+def evaluate_patient(patient: dict, protocol: dict, scorer=None) -> dict:
     """Run full evaluation of a single patient against a protocol with fail override."""
     structured_evidence = evaluate_structured(patient, protocol.get("structured", []))
-    unstructured_evidence = evaluate_unstructured(patient, protocol.get("unstructured", []))
+    unstructured_evidence = evaluate_unstructured(patient, protocol.get("unstructured", []),
+                                                  scorer=scorer)
     evidence = {**structured_evidence, **unstructured_evidence}
 
     total = len(evidence)

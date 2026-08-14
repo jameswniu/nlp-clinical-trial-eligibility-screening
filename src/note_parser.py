@@ -15,10 +15,30 @@ import math
 from collections import Counter
 from typing import Dict, Any
 
-from sentence_transformers import SentenceTransformer, util
+# The embedding model loads lazily so that the deterministic core (tests, the
+# dry-run gate) imports this module without torch installed. Only the first
+# real semantic query pays the load.
+_MODEL = None
 
-# Load a lightweight embedding model once
-model = SentenceTransformer("paraphrase-MiniLM-L3-v2")
+
+def _get_model():
+    global _MODEL
+    if _MODEL is None:
+        from sentence_transformers import SentenceTransformer
+        _MODEL = SentenceTransformer("paraphrase-MiniLM-L3-v2")
+    return _MODEL
+
+
+def semantic_scores(notes: str, phrases: list) -> list:
+    """Cosine similarity of the notes against each phrase, via MiniLM.
+
+    This is the default scorer for query_notes; tests inject a fake with the
+    same signature so verdict banding is checked without the model.
+    """
+    from sentence_transformers import util
+    embeddings = _get_model().encode([notes] + phrases, convert_to_tensor=True)
+    scores = util.cos_sim(embeddings[0], embeddings[1:])[0]
+    return [float(s) for s in scores]
 
 # Thresholds for semantic similarity
 SEMANTIC_PASS = 0.15
@@ -73,7 +93,7 @@ def cosine_similarity(text1: str, text2: str) -> float:
     return float(numerator) / denominator
 
 
-def query_notes(notes: str, criterion: Dict[str, Any]) -> str:
+def query_notes(notes: str, criterion: Dict[str, Any], scorer=None) -> str:
     if not notes:
         return f"MAYBE (no notes available for '{criterion.get('description','')}')"
 
@@ -92,9 +112,9 @@ def query_notes(notes: str, criterion: Dict[str, Any]) -> str:
                 return f"MAYBE (notes mention '{syn}', possible {concept})"
 
     # Semantic similarity
-    embeddings = model.encode([notes] + phrases, convert_to_tensor=True)
-    scores = util.cos_sim(embeddings[0], embeddings[1:])[0]
-    max_score = float(scores.max())
+    if scorer is None:
+        scorer = semantic_scores
+    max_score = float(max(scorer(notes, phrases)))
 
     if max_score >= SEMANTIC_PASS:
         return f"PASS (semantic match for '{desc}', score={max_score:.2f})"

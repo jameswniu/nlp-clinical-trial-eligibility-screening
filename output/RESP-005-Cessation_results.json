@@ -6,7 +6,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=68 in range 40-75)",
       "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.47)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.35)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.36)",
@@ -26,7 +26,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=60 in range 40-75)",
       "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.47)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.31)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.21)",
@@ -46,7 +46,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=51 in range 40-75)",
       "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.45)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.30)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.29)",
@@ -66,7 +66,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=64 in range 40-75)",
       "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.18)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.22)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.28)",
@@ -86,7 +86,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=62 in range 40-75)",
       "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.15)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.22)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.24)",
@@ -106,7 +106,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=54 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.27)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.19)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.22)",
@@ -126,7 +126,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "FAIL (age=36 not in range 40-75)",
       "Current smoker status confirmed.": "PASS (is_smoker exactly True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.58)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.35)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.35)",
@@ -146,7 +146,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=58 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.25)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.22)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.23)",
@@ -166,7 +166,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=75 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.33)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.27)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.21)",
@@ -186,7 +186,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=45 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.30)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.25)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.26)",
@@ -206,7 +206,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=62 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.27)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.21)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.16)",
@@ -226,7 +226,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=55 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.27)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.28)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.26)",
@@ -246,7 +246,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=49 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.29)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.20)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.21)",
@@ -266,7 +266,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=58 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.21)",
       "At least 2 previous quit attempts in past 5 years.": "MAYBE (weak semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.11)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.19)",
@@ -286,7 +286,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=51 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.35)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.31)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.26)",
@@ -306,7 +306,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=66 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.27)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.23)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.19)",
@@ -326,7 +326,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=52 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.33)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.24)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.28)",
@@ -346,7 +346,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=69 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.25)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.24)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.23)",
@@ -366,7 +366,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=56 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.30)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.21)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.26)",
@@ -386,7 +386,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=63 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.24)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.20)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.20)",
@@ -406,7 +406,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=67 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.24)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.22)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.19)",
@@ -426,7 +426,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=54 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.30)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.18)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.22)",
@@ -446,7 +446,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=60 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.28)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.25)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.17)",
@@ -466,7 +466,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=48 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.25)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.19)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.18)",
@@ -486,7 +486,7 @@
     "evidence": {
       "Age between 40 and 75 years (inclusive).": "PASS (age=54 in range 40-75)",
       "Current smoker status confirmed.": "FAIL (is_smoker=False not equal True)",
-      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for calculated_metric)",
+      "Spirometry FEV1 between 50-80% predicted.": "MAYBE (no data for FEV1_percent)",
       "Current smoker with \u226510 pack-year smoking history.": "PASS (semantic match for 'Current smoker with \u226510 pack-year smoking history.', score=0.27)",
       "At least 2 previous quit attempts in past 5 years.": "PASS (semantic match for 'At least 2 previous quit attempts in past 5 years.', score=0.19)",
       "High motivation to quit (\u22657/10).": "PASS (semantic match for 'High motivation to quit (\u22657/10).', score=0.18)",

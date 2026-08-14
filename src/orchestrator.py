@@ -19,6 +19,23 @@ from protocol_evaluator import evaluate_patient
 from utils import write_json
 
 
+def eligibility_sort_key(r):
+    """Sort patients: eligible first, then MAYBE, then rejected; confidence
+    descending inside each group ("NA" sorts as zero)."""
+    elig = r["is_eligible"]
+    score = r["confidence_score"]
+    score_val = score if isinstance(score, (int, float)) else 0.0
+
+    if elig is True:
+        group = 0
+    elif elig == "MAYBE":
+        group = 1
+    else:  # False
+        group = 2
+
+    return (group, -score_val)
+
+
 def run_workflow(patients_csv: str, labs_csv: str, notes_dir: str,
                  protocols_dir: str, outputs_dir="output"):
     """
@@ -43,22 +60,7 @@ def run_workflow(patients_csv: str, labs_csv: str, notes_dir: str,
             })
             results.append(result)
 
-        # Sort patients: True/MAYBE by confidence desc, then False
-        def sort_key(r):
-            elig = r["is_eligible"]
-            score = r["confidence_score"]
-            score_val = score if isinstance(score, (int, float)) else 0.0
-
-            if elig is True:
-                group = 0
-            elif elig == "MAYBE":
-                group = 1
-            else:  # False
-                group = 2
-
-            return (group, -score_val)
-
-        results.sort(key=sort_key)
+        results.sort(key=eligibility_sort_key)
 
         # Console print and protocol-level summary
         passed_patients = 0

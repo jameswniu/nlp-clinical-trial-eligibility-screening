@@ -2,11 +2,11 @@
   {
     "patient_id": "patient_C001",
     "is_eligible": true,
-    "confidence_score": 0.944,
+    "confidence_score": 1.0,
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=54 in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=7.9 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.22)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.29)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.42)",
@@ -18,11 +18,11 @@
   {
     "patient_id": "patient_C003",
     "is_eligible": true,
-    "confidence_score": 0.944,
+    "confidence_score": 1.0,
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=58 in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=7.0 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.22)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.18)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.27)",
@@ -32,29 +32,13 @@
     }
   },
   {
-    "patient_id": "patient_C006",
-    "is_eligible": true,
-    "confidence_score": 0.944,
-    "evidence": {
-      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=62 in range 50-70)",
-      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
-      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.23)",
-      "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.17)",
-      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.29)",
-      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.21)",
-      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.21)",
-      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.25)"
-    }
-  },
-  {
     "patient_id": "patient_C012",
     "is_eligible": true,
-    "confidence_score": 0.944,
+    "confidence_score": 1.0,
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=51 in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=7.7 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.30)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.16)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.36)",
@@ -64,45 +48,13 @@
     }
   },
   {
-    "patient_id": "patient_C016",
-    "is_eligible": true,
-    "confidence_score": 0.944,
-    "evidence": {
-      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=69 in range 50-70)",
-      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
-      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.20)",
-      "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.18)",
-      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.34)",
-      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.15)",
-      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.20)",
-      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.16)"
-    }
-  },
-  {
-    "patient_id": "patient_C017",
-    "is_eligible": true,
-    "confidence_score": 0.944,
-    "evidence": {
-      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=56 in range 50-70)",
-      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
-      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.27)",
-      "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.19)",
-      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.38)",
-      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.17)",
-      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.21)",
-      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.29)"
-    }
-  },
-  {
     "patient_id": "patient_C021",
     "is_eligible": true,
-    "confidence_score": 0.944,
+    "confidence_score": 1.0,
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=54 in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=7.9 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.23)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.16)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.33)",
@@ -114,11 +66,11 @@
   {
     "patient_id": "patient_C022",
     "is_eligible": true,
-    "confidence_score": 0.944,
+    "confidence_score": 1.0,
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=60 in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=6.8 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.25)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.19)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.38)",
@@ -128,45 +80,13 @@
     }
   },
   {
-    "patient_id": "patient_C008",
-    "is_eligible": true,
-    "confidence_score": 0.889,
-    "evidence": {
-      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=55 in range 50-70)",
-      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
-      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.24)",
-      "Family history of cancer in first-degree relatives.": "MAYBE (weak semantic match for 'Family history of cancer in first-degree relatives.', score=0.12)",
-      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.28)",
-      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.15)",
-      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.22)",
-      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.24)"
-    }
-  },
-  {
-    "patient_id": "patient_C011",
-    "is_eligible": true,
-    "confidence_score": 0.889,
-    "evidence": {
-      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=58 in range 50-70)",
-      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
-      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.18)",
-      "Family history of cancer in first-degree relatives.": "MAYBE (weak semantic match for 'Family history of cancer in first-degree relatives.', score=0.14)",
-      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.30)",
-      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.16)",
-      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.18)",
-      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.27)"
-    }
-  },
-  {
     "patient_id": "patient_C015",
     "is_eligible": true,
-    "confidence_score": 0.889,
+    "confidence_score": 0.944,
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=52 in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=6.9 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.31)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.34)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.44)",
@@ -176,45 +96,13 @@
     }
   },
   {
-    "patient_id": "patient_C018",
-    "is_eligible": true,
-    "confidence_score": 0.889,
-    "evidence": {
-      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=63 in range 50-70)",
-      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
-      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.19)",
-      "Family history of cancer in first-degree relatives.": "MAYBE (weak semantic match for 'Family history of cancer in first-degree relatives.', score=0.11)",
-      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.28)",
-      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.17)",
-      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.26)",
-      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.20)"
-    }
-  },
-  {
-    "patient_id": "patient_C020",
-    "is_eligible": true,
-    "confidence_score": 0.889,
-    "evidence": {
-      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=67 in range 50-70)",
-      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
-      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.25)",
-      "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.16)",
-      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.35)",
-      "No personal history of malignancy.": "MAYBE (weak semantic match for 'No personal history of malignancy.', score=0.14)",
-      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.16)",
-      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.20)"
-    }
-  },
-  {
     "patient_id": "patient_C025",
     "is_eligible": true,
-    "confidence_score": 0.889,
+    "confidence_score": 0.944,
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=54 in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=7.8 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.25)",
       "Family history of cancer in first-degree relatives.": "MAYBE (weak semantic match for 'Family history of cancer in first-degree relatives.', score=0.14)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.34)",
@@ -230,7 +118,7 @@
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "FAIL (age=36 not in range 50-70)",
       "Patient must not be a current smoker.": "FAIL (is_smoker=True not equal False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=8.2 not lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.51)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.16)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.31)",
@@ -246,7 +134,7 @@
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "FAIL (age=75 not in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=9.1 not lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.26)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.16)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.30)",
@@ -262,7 +150,7 @@
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "FAIL (age=45 not in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=6.5 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.28)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.19)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.38)",
@@ -272,18 +160,50 @@
     }
   },
   {
+    "patient_id": "patient_C006",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=62 in range 50-70)",
+      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=8.1 not lt 8.0)",
+      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.23)",
+      "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.17)",
+      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.29)",
+      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.21)",
+      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.21)",
+      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.25)"
+    }
+  },
+  {
     "patient_id": "patient_C007",
     "is_eligible": false,
     "confidence_score": "NA",
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=68 in range 50-70)",
       "Patient must not be a current smoker.": "FAIL (is_smoker=True not equal False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=7.8 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.36)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.32)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.45)",
       "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.30)",
       "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.18)",
+      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.24)"
+    }
+  },
+  {
+    "patient_id": "patient_C008",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=55 in range 50-70)",
+      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=8.7 not lt 8.0)",
+      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.24)",
+      "Family history of cancer in first-degree relatives.": "MAYBE (weak semantic match for 'Family history of cancer in first-degree relatives.', score=0.12)",
+      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.28)",
+      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.15)",
+      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.22)",
       "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.24)"
     }
   },
@@ -294,7 +214,7 @@
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "FAIL (age=49 not in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=7.6 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.24)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.24)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.37)",
@@ -310,7 +230,7 @@
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=64 in range 50-70)",
       "Patient must not be a current smoker.": "FAIL (is_smoker=True not equal False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=7.3 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.19)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.19)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.34)",
@@ -320,13 +240,29 @@
     }
   },
   {
+    "patient_id": "patient_C011",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=58 in range 50-70)",
+      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=9.2 not lt 8.0)",
+      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.18)",
+      "Family history of cancer in first-degree relatives.": "MAYBE (weak semantic match for 'Family history of cancer in first-degree relatives.', score=0.14)",
+      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.30)",
+      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.16)",
+      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.18)",
+      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.27)"
+    }
+  },
+  {
     "patient_id": "patient_C013",
     "is_eligible": false,
     "confidence_score": "NA",
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=66 in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=8.4 not lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.25)",
       "Family history of cancer in first-degree relatives.": "MAYBE (weak semantic match for 'Family history of cancer in first-degree relatives.', score=0.10)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.30)",
@@ -342,7 +278,7 @@
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=60 in range 50-70)",
       "Patient must not be a current smoker.": "FAIL (is_smoker=True not equal False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=8.0 not lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.43)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.19)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.39)",
@@ -352,13 +288,61 @@
     }
   },
   {
+    "patient_id": "patient_C016",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=69 in range 50-70)",
+      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=9.5 not lt 8.0)",
+      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.20)",
+      "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.18)",
+      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.34)",
+      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.15)",
+      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.20)",
+      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.16)"
+    }
+  },
+  {
+    "patient_id": "patient_C017",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=56 in range 50-70)",
+      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=8.2 not lt 8.0)",
+      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.27)",
+      "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.19)",
+      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.38)",
+      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.17)",
+      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.21)",
+      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.29)"
+    }
+  },
+  {
+    "patient_id": "patient_C018",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=63 in range 50-70)",
+      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=9.0 not lt 8.0)",
+      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.19)",
+      "Family history of cancer in first-degree relatives.": "MAYBE (weak semantic match for 'Family history of cancer in first-degree relatives.', score=0.11)",
+      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.28)",
+      "No personal history of malignancy.": "PASS (semantic match for 'No personal history of malignancy.', score=0.17)",
+      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.26)",
+      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.20)"
+    }
+  },
+  {
     "patient_id": "patient_C019",
     "is_eligible": false,
     "confidence_score": "NA",
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=51 in range 50-70)",
       "Patient must not be a current smoker.": "FAIL (is_smoker=True not equal False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "PASS (HbA1c=7.4 lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.41)",
       "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.20)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.38)",
@@ -368,13 +352,29 @@
     }
   },
   {
+    "patient_id": "patient_C020",
+    "is_eligible": false,
+    "confidence_score": "NA",
+    "evidence": {
+      "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=67 in range 50-70)",
+      "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=9.3 not lt 8.0)",
+      "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.25)",
+      "Family history of cancer in first-degree relatives.": "PASS (semantic match for 'Family history of cancer in first-degree relatives.', score=0.16)",
+      "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.35)",
+      "No personal history of malignancy.": "MAYBE (weak semantic match for 'No personal history of malignancy.', score=0.14)",
+      "No current immunosuppressive therapy.": "PASS (semantic match for 'No current immunosuppressive therapy.', score=0.16)",
+      "Moderate alcohol consumption within guidelines.": "PASS (semantic match for 'Moderate alcohol consumption within guidelines.', score=0.20)"
+    }
+  },
+  {
     "patient_id": "patient_C023",
     "is_eligible": false,
     "confidence_score": "NA",
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "FAIL (age=48 not in range 50-70)",
       "Patient must not be a current smoker.": "PASS (is_smoker exactly False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=8.5 not lt 8.0)",
       "Must be non-smoker for at least 5 years.": "PASS (semantic match for 'Must be non-smoker for at least 5 years.', score=0.21)",
       "Family history of cancer in first-degree relatives.": "MAYBE (weak semantic match for 'Family history of cancer in first-degree relatives.', score=0.12)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.33)",
@@ -390,7 +390,7 @@
     "evidence": {
       "Patient must be between 50 and 70 years of age (inclusive).": "PASS (age=62 in range 50-70)",
       "Patient must not be a current smoker.": "FAIL (is_smoker=True not equal False)",
-      "HbA1c level must be less than 8.0%.": "MAYBE (no data for lab_result)",
+      "HbA1c level must be less than 8.0%.": "FAIL (HbA1c=8.3 not lt 8.0)",
       "Must be non-smoker for at least 5 years.": "MAYBE (weak semantic match for 'Must be non-smoker for at least 5 years.', score=0.14)",
       "Family history of cancer in first-degree relatives.": "MAYBE (weak semantic match for 'Family history of cancer in first-degree relatives.', score=0.12)",
       "Must have completed age-appropriate cancer screening.": "PASS (semantic match for 'Must have completed age-appropriate cancer screening.', score=0.30)",
