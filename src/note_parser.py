@@ -29,6 +29,21 @@ def _get_model():
     return _MODEL
 
 
+# One patient's note is scored against every criterion of every protocol, so
+# the same strings recur constantly. Memoizing embeddings changes no score
+# (identical input, identical vector) and cuts encode calls roughly 10x on a
+# full cohort replay.
+_EMBED_CACHE = {}
+
+
+def _embed(text: str):
+    vec = _EMBED_CACHE.get(text)
+    if vec is None:
+        vec = _get_model().encode([text], convert_to_tensor=True)[0]
+        _EMBED_CACHE[text] = vec
+    return vec
+
+
 def semantic_scores(notes: str, phrases: list) -> list:
     """Cosine similarity of the notes against each phrase, via MiniLM.
 
@@ -36,9 +51,8 @@ def semantic_scores(notes: str, phrases: list) -> list:
     same signature so verdict banding is checked without the model.
     """
     from sentence_transformers import util
-    embeddings = _get_model().encode([notes] + phrases, convert_to_tensor=True)
-    scores = util.cos_sim(embeddings[0], embeddings[1:])[0]
-    return [float(s) for s in scores]
+    note_vec = _embed(notes)
+    return [float(util.cos_sim(note_vec, _embed(p))[0][0]) for p in phrases]
 
 # Thresholds for semantic similarity
 SEMANTIC_PASS = 0.15

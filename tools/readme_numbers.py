@@ -63,11 +63,32 @@ def compute():
         capture_output=True, text=True, cwd=ROOT)
     n["tests"] = sum(
         1 for ln in collect.stdout.splitlines() if "::" in ln and " " not in ln.strip())
+
+    # Tier 2 and the bench, present only once those artifacts exist.
+    cohort_path = os.path.join(ROOT, "evals", "cohort.expected.json")
+    if os.path.exists(cohort_path):
+        with open(cohort_path, encoding="utf-8") as fh:
+            pinned = json.load(fh)
+        n["cohort_decisions"] = len(pinned)
+        n["cohort_patients"] = len({r["patient_id"] for r in pinned})
+        with open(os.path.join(ROOT, "cohort", "traps.json"), encoding="utf-8") as fh:
+            n["traps"] = json.load(fh)["count"]
+        with open(os.path.join(ROOT, "evals", "known_wrong.expected.json"),
+                  encoding="utf-8") as fh:
+            n["known_wrong"] = json.load(fh)["count"]
+        if receipt.get("cohort_decisions") is not None:
+            n["cohort_agree"] = receipt["cohort_agree"]
+    bench_path = os.path.join(ROOT, "bench", "receipt.json")
+    if os.path.exists(bench_path):
+        with open(bench_path, encoding="utf-8") as fh:
+            b = json.load(fh)
+        n["bench_patients"] = b["patients"]
+        n["bench_pps"] = b["patients_per_s"]
     return n
 
 
 def needles(n):
-    return [
+    out = [
         f"{n['decisions']} decisions",
         f"{n['abstentions']} abstention",
         f"{n['tests']} tests",
@@ -80,6 +101,30 @@ def needles(n):
         f"abstains-{n['abstentions']}",
         f"thresholds-{n['derived']}%2F{n['named_gates']}",
     ]
+    if "cohort_decisions" in n:
+        out += [
+            f"{n['cohort_patients']} generated patients",
+            f"{n['cohort_decisions']} pinned decisions",
+            f"{n['traps']} planted traps",
+            f"{n['known_wrong']} known-wrong",
+            f"cohort-{n['cohort_decisions']}_pinned",
+        ]
+        if "cohort_agree" in n:
+            out.append(f"{n['cohort_agree']} of {n['cohort_decisions']} pinned")
+    if "bench_pps" in n:
+        out.append(f"{n['bench_pps']:g} patients/s over {n['bench_patients']:,}")
+    return out
+
+
+def svg_needles(n):
+    """Numbers the hero SVG must carry; assets are not regenerated, so this is
+    the staleness alarm for hand-authored visuals."""
+    hero = os.path.join(ROOT, "assets", "hero.svg")
+    with open(hero, encoding="utf-8") as fh:
+        text = fh.read()
+    want = [f">{n['decisions']}<", f"{n['abstentions']} / {n['criterion_verdicts']}",
+            f">{n['tests']}<"]
+    return [(w, w in text) for w in want]
 
 
 def main():
@@ -92,9 +137,13 @@ def main():
     missing = [needle for needle in needles(n) if needle not in text]
     for needle in needles(n):
         print(("ok      " if needle in text else "MISSING ") + needle)
-    if missing:
-        print(f"\n{len(missing)} README number(s) do not match the artifacts. "
-              f"Regenerate the claim or rerun the measurement.")
+    svg_missing = [w for w, ok in svg_needles(n) if not ok]
+    for w, ok in svg_needles(n):
+        print(("ok  svg " if ok else "STALE   ") + w)
+    if missing or svg_missing:
+        print(f"\n{len(missing)} README number(s) and {len(svg_missing)} hero-SVG "
+              f"number(s) do not match the artifacts. Regenerate the claim, rerun "
+              f"the measurement, or re-author the SVG.")
         return 1
     print("\nevery counted README number regenerates from its artifact")
     return 0

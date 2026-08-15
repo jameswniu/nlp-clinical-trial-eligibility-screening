@@ -34,6 +34,23 @@ PROTOCOLS = ["ONC-003-Prevention", "RESP-005-Cessation"]
 SCORE_TOL = 0.02
 EXPECTED_PATIENTS = 25
 
+# Tier 2: the pinned regression cohort. 175 generated patients, audited by
+# planted-trap manifest plus samples, never blended into the verified tier.
+# cohort.expected.json pins what the pipeline actually produces;
+# known_wrong.expected.json is the ledger of pinned verdicts the audit judged
+# WRONG (mostly negation traps the similarity lane cannot see). A change that
+# silently "fixes" a known-wrong case reds the replay until both files are
+# re-audited together.
+COHORT_ROOT = os.path.join(ROOT, "cohort")
+COHORT_GOLDEN = os.path.join(ROOT, "evals", "cohort.expected.json")
+KNOWN_WRONG = os.path.join(ROOT, "evals", "known_wrong.expected.json")
+TRAPS = os.path.join(COHORT_ROOT, "traps.json")
+COHORT_PATIENTS = 175
+
+
+def cohort_present():
+    return os.path.exists(COHORT_GOLDEN) and os.path.isdir(COHORT_ROOT)
+
 
 def load_golden():
     data = {}
@@ -115,8 +132,12 @@ def dry_run():
     if found != set(PROTOCOLS):
         failures.append(f"protocols normalized to {sorted(found)}, expected {PROTOCOLS}")
 
-    print(f"golden: {n_total} decisions, {n_verdicts} criterion verdicts, "
+    print(f"verified tier: {n_total} decisions, {n_verdicts} criterion verdicts, "
           f"{n_maybe_verdicts} abstentions")
+
+    if cohort_present():
+        failures += cohort_dry_run()
+
     if failures:
         print(f"\nDRY RUN FAILURES ({len(failures)})")
         for f in failures:
@@ -124,6 +145,62 @@ def dry_run():
         return 1
     print("dry run green: goldens are internally consistent and the inputs are intact")
     return 0
+
+
+def cohort_dry_run():
+    """Structural checks for the pinned cohort tier; returns failures."""
+    import csv as _csv
+    failures = []
+    with open(COHORT_GOLDEN, encoding="utf-8") as fh:
+        pinned = {(r["protocol"], r["patient_id"]): r for r in json.load(fh)}
+    n_dec = len(pinned)
+    if n_dec != COHORT_PATIENTS * len(PROTOCOLS):
+        failures.append(f"cohort: {n_dec} pinned decisions, expected "
+                        f"{COHORT_PATIENTS * len(PROTOCOLS)}")
+    n_verd, n_abst = 0, 0
+    for (proto, pid), rec in pinned.items():
+        check_record(f"cohort/{proto}", pid, rec, failures)
+        vs = [verdict_of(v) for v in rec["evidence"].values()]
+        n_verd += len(vs)
+        n_abst += vs.count("MAYBE")
+
+    with open(os.path.join(COHORT_ROOT, "patients.csv"), encoding="utf-8") as fh:
+        ids = {r["patient_id"] for r in _csv.DictReader(fh)}
+    if len(ids) != COHORT_PATIENTS:
+        failures.append(f"cohort/patients.csv has {len(ids)} patients, "
+                        f"expected {COHORT_PATIENTS}")
+    notes = [f for f in os.listdir(os.path.join(COHORT_ROOT, "clinical_notes"))
+             if f.endswith(".txt")]
+    if len(notes) != COHORT_PATIENTS:
+        failures.append(f"cohort has {len(notes)} notes, expected {COHORT_PATIENTS}")
+
+    with open(TRAPS, encoding="utf-8") as fh:
+        traps = json.load(fh)["traps"]
+    for t in traps:
+        if t["patient"] not in ids:
+            failures.append(f"trap references unknown patient {t['patient']}")
+        elif not any((p, t["patient"]) in pinned for p in PROTOCOLS):
+            failures.append(f"trap patient {t['patient']} missing from pinned cohort")
+
+    with open(KNOWN_WRONG, encoding="utf-8") as fh:
+        ledger = json.load(fh)
+    trap_keys = {(t["patient"], t["criterion"]) for t in traps}
+    for w in ledger["cases"]:
+        if (w["patient"], w["criterion"]) not in trap_keys:
+            failures.append(f"known-wrong case {w['patient']}/{w['criterion'][:40]!r} "
+                            f"matches no planted trap")
+        rec = pinned.get((w["protocol"], w["patient"]))
+        got = verdict_of(rec["evidence"].get(w["criterion"], "")) if rec else None
+        if got != w["pinned_verdict"]:
+            failures.append(
+                f"ledger drift: {w['patient']}/{w['criterion'][:40]!r} pinned as "
+                f"{w['pinned_verdict']} but cohort golden says {got}")
+    if len(ledger["cases"]) != ledger["count"]:
+        failures.append(f"ledger count {ledger['count']} != {len(ledger['cases'])} cases")
+
+    print(f"cohort tier: {n_dec} pinned decisions, {n_verd} verdicts, {n_abst} "
+          f"abstentions; {len(traps)} planted traps; {ledger['count']} known-wrong pinned")
+    return failures
 
 
 def full():
@@ -211,6 +288,12 @@ def full():
     summary = {"decisions": n_total, "agree": n_agree,
                "labels": n_labels, "labels_remeasured": n_remeasured,
                "failures": len(failures)}
+
+    if cohort_present():
+        c_total, c_agree, c_failures = cohort_full(patients_root=COHORT_ROOT)
+        failures += c_failures
+        summary["cohort_decisions"] = c_total
+        summary["cohort_agree"] = c_agree
     # The receipt readme_numbers.py checks the README's agreement claim
     # against; committed, so the claim traces to a recorded run.
     with open(os.path.join(ROOT, "evals", "last_full_run.json"), "w",
@@ -227,6 +310,62 @@ def full():
             print(f"  {f}")
         return 1
     return 0
+
+
+def cohort_full(patients_root):
+    """Recompute all pinned cohort decisions and compare exactly.
+
+    The ledger's known-wrong verdicts are part of the pin: a change that fixes
+    or worsens one shows up here as drift, which is the point.
+    """
+    sys.path.insert(0, os.path.join(ROOT, "src"))
+    from data_loader import build_patient_profiles
+    from protocol_sorter import sort_protocols
+    from protocol_evaluator import evaluate_patient
+
+    failures = []
+    with open(COHORT_GOLDEN, encoding="utf-8") as fh:
+        pinned = {(r["protocol"], r["patient_id"]): r for r in json.load(fh)}
+    patients = build_patient_profiles(
+        os.path.join(patients_root, "patients.csv"),
+        os.path.join(patients_root, "lab_results.csv"),
+        os.path.join(patients_root, "clinical_notes"))
+    protocols = sort_protocols(os.path.join(ROOT, "data"))
+
+    n_agree = 0
+    for protocol in protocols:
+        proto_id = protocol["protocol_id"]
+        for patient in patients.values():
+            g = evaluate_patient(patient, {
+                "id": proto_id,
+                "structured": protocol.get("structured_criteria", []),
+                "unstructured": protocol.get("unstructured_criteria", []),
+            })
+            exp = pinned.get((proto_id, patient["patient_id"]))
+            if exp is None:
+                failures.append(f"cohort/{proto_id}/{patient['patient_id']}: not pinned")
+                continue
+            ok = str(g["is_eligible"]) == str(exp["is_eligible"])
+            es, gs = exp["confidence_score"], g["confidence_score"]
+            if isinstance(es, (int, float)) != isinstance(gs, (int, float)):
+                ok = False
+            elif isinstance(es, (int, float)) and abs(es - gs) > SCORE_TOL:
+                ok = False
+            for crit, ev in exp["evidence"].items():
+                gv = g["evidence"].get(crit)
+                if gv is None or verdict_of(ev) != verdict_of(gv):
+                    failures.append(f"cohort/{proto_id}/{patient['patient_id']}/"
+                                    f"{crit[:40]!r}: {verdict_of(ev)} -> "
+                                    f"{verdict_of(gv) if gv else 'missing'}")
+                    ok = False
+            if ok:
+                n_agree += 1
+            elif str(g["is_eligible"]) != str(exp["is_eligible"]):
+                failures.append(f"cohort/{proto_id}/{patient['patient_id']}: "
+                                f"eligibility {exp['is_eligible']!r} -> {g['is_eligible']!r}")
+
+    print(f"cohort replay: {n_agree} of {len(pinned)} pinned decisions agree")
+    return len(pinned), n_agree, failures
 
 
 if __name__ == "__main__":

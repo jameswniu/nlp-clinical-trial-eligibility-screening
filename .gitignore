@@ -8,3 +8,5 @@ venv/
 evals/runs/
 output-baseline/
 .cache/
+bench/corpus/
+cohort_staging/

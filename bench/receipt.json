@@ -1,0 +1,20 @@
+{
+  "patients": 1000,
+  "decisions": 2000,
+  "elapsed_s": 28.3,
+  "patients_per_s": 35.3,
+  "decisions_per_s": 70.6,
+  "peak_rss_mb": 873,
+  "abstention_rate_by_stratum": {
+    "smoker": 0.05,
+    "nonsmoker": 0.057
+  },
+  "seed": 42,
+  "env": {
+    "machine": "aarch64",
+    "system": "Linux 6.12.68-linuxkit",
+    "python": "3.12.14",
+    "cpu_count": 18,
+    "torch": "2.13.0+cu130"
+  }
+}
