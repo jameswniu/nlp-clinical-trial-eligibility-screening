@@ -42,12 +42,11 @@ jobs:
         run: |
           set -e
           for f in src/*.py; do
-            python -c "
-          import importlib.util
-          spec = importlib.util.spec_from_file_location('m', '$f')
-          m = importlib.util.module_from_spec(spec)
-          spec.loader.exec_module(m)
-          " || { echo "FAILED TO IMPORT: $f"; exit 1; }
+            mod=$(basename "$f" .py)
+            # src/ on the path: the modules import each other as siblings,
+            # exactly as the orchestrator runs them.
+            python -c "import sys; sys.path.insert(0, 'src'); import $mod" \
+              || { echo "FAILED TO IMPORT: $f"; exit 1; }
           done
           echo "all src modules import without torch"
 
