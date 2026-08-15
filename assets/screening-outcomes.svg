@@ -45,6 +45,6 @@
   <rect x="988" y="240" width="18" height="18" rx="3" fill="#c9564f"/>
   <text x="1016" y="256" class="m">FAIL 47</text>
 
-  <text x="640" y="322" class="m">67 abstentions each name their missing datum;</text>
-  <text x="640" y="352" class="m">47 failures each cite the disqualifying value</text>
+  <text x="640" y="322" class="m">every abstention names its gap;</text>
+  <text x="640" y="352" class="m">every failure cites its value</text>
 </svg>
