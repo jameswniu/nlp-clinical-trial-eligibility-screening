@@ -89,6 +89,14 @@ Six small modules, one direction of flow, and a gate underneath the whole thing.
 <summary>Mermaid source for this diagram</summary>
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {
+  "fontFamily": "ui-monospace, SFMono-Regular, Menlo, monospace",
+  "fontSize": "15px",
+  "primaryColor": "#131a21", "primaryTextColor": "#dfe3e0", "primaryBorderColor": "#2a3540",
+  "lineColor": "#5b6570", "textColor": "#8f9491",
+  "clusterBkg": "#0f151b", "clusterBorder": "#24303a",
+  "edgeLabelBackground": "#0c1013", "tertiaryColor": "#0f151b"
+}}}%%
 flowchart TD
     subgraph IN [inputs]
         P["protocol YAMLs"]
@@ -114,6 +122,9 @@ flowchart TD
     M --> V
     V --> O
     O --> G
+
+    classDef gate fill:#10201d,stroke:#2dd4bf,color:#5eead4,stroke-width:1.5px
+    class G gate
 ```
 
 </details>
