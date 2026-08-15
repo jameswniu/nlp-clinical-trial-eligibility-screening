@@ -12,12 +12,12 @@ Two tiers, priced differently:
               This is what the CI `checks` job runs on every push.
 
   --full      Recomputes all 50 decisions with the real embedding model and
-              compares them to the goldens: eligibility and per-criterion
-              verdict labels must match exactly, numeric scores to within 0.02
-              (embedding stacks differ across torch builds; a real regression
-              moves a verdict, not a third decimal). Also re-measures every row
-              in labels.csv, closing the loop derive.py leaves open. This is
-              the CI `eval-full` job.
+              compares them to the goldens. Eligibility and verdict labels
+              must match exactly; scores get 0.02 tolerance, since embedding
+              stacks differ across torch builds and a real regression moves a
+              verdict, not a third decimal. Also re-measures every labels.csv
+              row, closing the loop derive.py leaves open. This is the CI
+              `eval-full` job.
 
 Exit 0 green / 1 a check failed.
 

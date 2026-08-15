@@ -21,11 +21,10 @@ they can embarrass the author:
 
   3. PIN. Compare the DERIVED/REFUTED/AUTHORED split against the committed
      expectation in evals/derivation.expected.json and fail on any drift.
-     On THIS repo the honest result is refutation: a criterion with no
-     support in the note scores 0.29 while a genuinely supported one scores
-     0.12, so no threshold on this axis can separate them. The expectation
-     file pins that finding as a regression guard; if a code change silently
-     "fixes" or worsens the refutation, CI goes red until the expectation is
+     On this repo the result is refutation: an unsupported criterion scores
+     0.29 while a supported one scores 0.12, so no threshold on this axis
+     separates them. The expectation file pins that finding. A change that
+     moves the split either way turns CI red until the expectation is
      re-reviewed and re-committed.
 
 The three verdict tiers make each floor a different question. SEMANTIC_PASS

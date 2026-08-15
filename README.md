@@ -81,30 +81,44 @@ So no cutoff on that axis separates supported from unsupported. The split is pin
 
 ## Architecture
 
-<p align="center"><img src="assets/architecture.svg" alt="Data flow: protocol YAMLs, patient CSVs, and clinical notes are normalized into profiles and criteria, evaluated down a structured lane and a MiniLM semantic lane, and emitted as per-criterion verdicts with evidence strings and confidence; a golden-dataset gate replays all 50 decisions in CI" width="100%"></p>
-
-Six small modules, one direction of flow. `protocol_sorter.py` repairs the protocol YAML and splits criteria into structured and unstructured. (The source files ship with a dangling list, deliberately kept.) `data_loader.py` builds one profile per patient: age from calendar arithmetic, smoker flag, most-recent lab per test, note text. `protocol_evaluator.py` runs the structured comparisons. `note_parser.py` tries a synonym shortcut, then MiniLM similarity, then a bag-of-words fallback. The orchestrator sorts eligible patients first by confidence and writes one JSON per protocol.
-
-The embedding model loads lazily and the scorer is injectable. The deterministic core imports and tests without torch installed, which keeps the CI checks job at zero model downloads.
-
-<details>
-<summary>Mermaid source for this diagram</summary>
+Six small modules, one direction of flow, and a gate underneath the whole thing.
 
 ```mermaid
+%%{init: {"flowchart": {"htmlLabels": true, "curve": "linear"}, "themeVariables": {"fontSize": "16px"}}}%%
 flowchart TD
-    A[patients.csv + lab_results.csv + clinical_notes/] --> B[data_loader.py]
-    B --> C[patient profiles]
-    D[protocol YAMLs] --> E[protocol_sorter.py]
-    E --> F[normalized criteria]
-    C --> G[protocol_evaluator.py + note_parser.py]
-    F --> G
-    G --> H[per-criterion PASS / MAYBE / FAIL + evidence + score]
-    H --> I[orchestrator.py]
-    I --> J[console + output/ JSON]
-    J --> K[evals/suite.py vs 50 goldens, in CI]
+    subgraph IN [inputs]
+        P["protocol YAMLs<br/>inclusion + exclusion criteria"]
+        C["patients.csv + lab_results.csv"]
+        N["clinical notes, 25 synthetic"]
+    end
+    subgraph NORM [normalize]
+        S["protocol_sorter.py<br/>repair YAML, split criteria"]
+        L["data_loader.py<br/>one profile per patient"]
+    end
+    subgraph EVAL [evaluate]
+        E["protocol_evaluator.py<br/>structured: age, flags, labs"]
+        M["note_parser.py<br/>unstructured: MiniLM matching"]
+    end
+    V["per criterion: PASS / MAYBE / FAIL<br/>evidence string + score"]
+    O["orchestrator.py<br/>confidence, sort, one JSON per protocol"]
+    G["the gate: evals/suite.py + derive.py<br/>50 golden decisions replayed in CI"]
+
+    P --> S
+    C --> L
+    N --> L
+    S --> E
+    L --> E
+    L --> M
+    S --> M
+    E --> V
+    M --> V
+    V --> O
+    O --> G
 ```
 
-</details>
+`protocol_sorter.py` repairs the protocol YAML and splits criteria into structured and unstructured. (The source files ship with a dangling list, deliberately kept.) `data_loader.py` builds one profile per patient: age from calendar arithmetic, smoker flag, most-recent lab per test, note text. `protocol_evaluator.py` runs the structured comparisons. `note_parser.py` tries a synonym shortcut, then MiniLM similarity, then a bag-of-words fallback. The orchestrator sorts eligible patients first by confidence and writes one JSON per protocol.
+
+The embedding model loads lazily and the scorer is injectable. The deterministic core imports and tests without torch installed, which keeps the CI checks job at zero model downloads.
 
 ## The gate CI actually runs
 
@@ -203,7 +217,7 @@ evals/
   derive.py           thresholds vs labels, refutation pinned and guarded
   suite.py            --dry-run (free, CI) and --full (model recompute)
 tools/readme_numbers.py   every counted number here, regenerated or failed
-assets/               hand-authored SVGs, XML-checked in CI
+assets/               the hero SVG, XML-checked in CI
 output/               the shipped decision JSONs the goldens were seeded from
 ```
 
