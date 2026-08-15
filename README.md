@@ -91,10 +91,10 @@ Six small modules, one direction of flow, and a gate underneath the whole thing.
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {
   "fontSize": "16px",
-  "primaryColor": "#35506b", "primaryTextColor": "#eef4f8", "primaryBorderColor": "#7e9cba",
-  "lineColor": "#8aa2b8", "textColor": "#c4d4e2",
-  "clusterBkg": "#101c26", "clusterBorder": "#3a5468",
-  "edgeLabelBackground": "#101c26", "tertiaryColor": "#101c26"
+  "primaryColor": "#242c35", "primaryTextColor": "#e8ebee", "primaryBorderColor": "#45525f",
+  "lineColor": "#5c6b79", "textColor": "#9fa9b2",
+  "clusterBkg": "#161b21", "clusterBorder": "#333e49",
+  "edgeLabelBackground": "#161b21", "tertiaryColor": "#161b21"
 }}}%%
 flowchart TD
     subgraph IN [inputs]
@@ -122,7 +122,7 @@ flowchart TD
     V --> O
     O --> G
 
-    classDef gate fill:#10201d,stroke:#2dd4bf,color:#5eead4,stroke-width:1.5px
+    classDef gate fill:#20302a,stroke:#5f8d76,color:#a9c7b9,stroke-width:1.8px
     class G gate
 ```
 
