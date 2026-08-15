@@ -1,0 +1,6 @@
+Patient T051, Male, 33 years old, presents for follow-up on newly diagnosed diabetes. DOB 1991-01-27.
+HbA1c (March 2024) was 8.9%, indicating poorly controlled Type 2 Diabetes diagnosed two months ago.
+Started on Metformin, dietary counseling provided. Never smoked tobacco.
+Family history includes father with Type 2 Diabetes. No personal history of malignancy.
+Drinks alcohol rarely. No current immunosuppressive therapy.
+No signs of heart failure or cardiac disease. Reports difficulty adjusting to new diet.

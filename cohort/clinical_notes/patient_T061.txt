@@ -1,0 +1,6 @@
+Patient T061, Male, 63 years old, presents for follow-up on poorly controlled diabetes. DOB 1961-02-21.
+HbA1c (February 2024) was 9.5%, indicating poor glycemic control despite insulin therapy.
+Never smoked tobacco. Family history includes father with lung cancer diagnosed at 70, never smoked either.
+Colonoscopy completed 2023, no polyps found. No personal history of malignancy.
+Drinks alcohol rarely. No current immunosuppressive therapy.
+Reports difficulty with insulin adherence, referred to diabetes educator.

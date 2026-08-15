@@ -1,0 +1,6 @@
+Patient T060, Female, 60 years old, presents for annual wellness examination. DOB 1964-01-03.
+HbA1c (January 2024) was 7.0%. Diagnosed with Type 2 Diabetes in 2021, well managed on Metformin.
+Never smoked tobacco. Family history includes mother with breast cancer diagnosed at 58.
+Last mammography was February 2024, normal results. Colonoscopy completed 2021, no polyps found.
+Drinks wine occasionally, one to two glasses per week. No personal history of malignancy.
+No current immunosuppressive therapy. Cardiovascular examination unremarkable.

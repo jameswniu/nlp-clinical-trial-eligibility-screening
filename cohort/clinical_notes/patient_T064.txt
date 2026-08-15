@@ -1,0 +1,6 @@
+Patient T064, Female, 72 years old, presents for follow-up on Type 2 Diabetes. DOB 1952-02-08.
+HbA1c (February 2024) was 8.0%, indicating borderline control on Metformin and Glipizide.
+Never smoked tobacco. Family history includes sister with colon cancer diagnosed at 65.
+Colonoscopy completed 2023, no polyps found. Last mammography was July 2023, normal results.
+Drinks alcohol rarely. No personal history of malignancy. No current immunosuppressive therapy.
+No signs of heart failure or cardiac disease.

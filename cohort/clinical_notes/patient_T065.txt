@@ -1,0 +1,6 @@
+Patient T065, Male, 75 years old, presents for annual wellness examination. DOB 1949-03-27.
+HbA1c (March 2024) was 5.6%, within normal range. No history of diabetes mellitus.
+Former smoker, quit 20 years ago after a 15 pack-year history. Family history includes brother with lung cancer diagnosed at 68.
+Colonoscopy completed 2021, no polyps found. No personal history of malignancy.
+Drinks alcohol rarely. No current immunosuppressive therapy.
+No signs of heart failure or cardiac disease.

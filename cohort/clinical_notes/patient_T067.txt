@@ -1,0 +1,6 @@
+Patient T067, Male, 80 years old, presents for annual wellness examination. DOB 1944-01-19.
+HbA1c (January 2024) was 7.3%. Diagnosed with Type 2 Diabetes in 2008, moderate control on insulin.
+Former smoker, quit 25 years ago after a 20 pack-year history. Family history includes father with colon cancer diagnosed at 75.
+Colonoscopy completed 2020, no polyps found. No personal history of malignancy.
+Drinks alcohol rarely. No current immunosuppressive therapy.
+Cardiovascular examination shows mild hypertension, well controlled on medication.

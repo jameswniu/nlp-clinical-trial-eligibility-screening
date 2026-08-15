@@ -1,0 +1,6 @@
+Patient T058, Female, 54 years old, presents for follow-up on Type 2 Diabetes. DOB 1970-03-11.
+HbA1c (March 2024) was 8.4%, indicating suboptimal control despite Metformin and Glipizide.
+Never smoked tobacco. Family history includes sister with breast cancer diagnosed at 49.
+Last mammography was May 2023, normal results. Colonoscopy completed 2022, no polyps found.
+Drinks wine occasionally, one glass per week. No personal history of malignancy.
+No current immunosuppressive therapy. Reports frustration with dietary restrictions.

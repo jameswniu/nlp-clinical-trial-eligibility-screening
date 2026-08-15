@@ -1,0 +1,6 @@
+Patient T070, Female, 64 years old, presents for annual wellness examination. DOB 1960-04-30.
+HbA1c (April 2024) was 6.4%, within normal range. No history of diabetes mellitus.
+Never smoked tobacco. Family history includes father with prostate cancer diagnosed at 71.
+Last mammography was December 2023, normal results. Colonoscopy completed 2023, no polyps found.
+Drinks wine occasionally, one glass per week. No current immunosuppressive therapy.
+No signs of heart failure or cardiac disease.

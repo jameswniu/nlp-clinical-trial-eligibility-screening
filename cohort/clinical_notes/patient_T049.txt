@@ -1,0 +1,7 @@
+Patient T049, Female, 60 years old, presents for smoking cessation evaluation. DOB 1964-01-30.
+Current smoker, 10 cigarettes daily for 35 years, approximately 17.5 pack-years. FEV1 this visit 72% predicted.
+HbA1c (January 2024) was 6.9%. One quit attempt fifteen years ago, none since.
+Motivation to quit rated 7 out of 10 this visit. No active respiratory infection in past 4 weeks.
+No supplemental oxygen use. No severe COPD diagnosis on record.
+Lives with adult daughter who is supportive of cessation attempt.
+Psychiatric history stable, no recent major life stressors.

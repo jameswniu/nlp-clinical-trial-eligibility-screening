@@ -1,0 +1,6 @@
+Patient T069, Male, 52 years old, presents for follow-up on diabetes and smoking status. DOB 1972-03-23.
+HbA1c (March 2024) was 8.6%, indicating suboptimal control on Metformin.
+Current smoker, one pack daily for 32 years, approximately 32 pack-years. One prior quit attempt eight years ago.
+Motivation to quit rated 4 out of 10. No active respiratory infection currently.
+No supplemental oxygen use. No severe COPD diagnosis on record.
+Lives with spouse, describes moderate social support for cessation attempt.

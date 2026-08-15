@@ -3,5 +3,7 @@
   "agree": 50,
   "labels": 17,
   "labels_remeasured": 17,
-  "failures": 0
+  "failures": 0,
+  "cohort_decisions": 350,
+  "cohort_agree": 350
 }

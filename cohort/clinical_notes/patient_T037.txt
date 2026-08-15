@@ -1,0 +1,7 @@
+Patient T037, Female, 60 years old, presents for annual wellness examination. DOB 1964-02-14.
+No history of diabetes mellitus. HbA1c (January 2024) was 6.2%, within normal range.
+No family history of cancer in any first-degree relative. Mother died of stroke at 82, father alive and well.
+Last mammography was October 2023, results normal. Colonoscopy completed 2021, no polyps found.
+Never smoked tobacco. Drinks wine occasionally, one to two glasses per week.
+No current immunosuppressive therapy. No personal history of malignancy.
+Cardiovascular examination unremarkable. No signs of heart failure.

@@ -1,0 +1,246 @@
+{
+ "count": 30,
+ "doc": "Pinned verdicts the trap audit judged WRONG: the note does not support the criterion, similarity matched the topic anyway. CI reds if any of these silently change.",
+ "cases": [
+  {
+   "protocol": "ONC-003-Prevention",
+   "patient": "patient_T003",
+   "criterion": "Family history of cancer in first-degree relatives.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "No family history of cancer in any first-degree relative"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T007",
+   "criterion": "Occupational or environmental smoke exposure history.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "Denies any occupational or workplace smoke exposure"
+  },
+  {
+   "protocol": "ONC-003-Prevention",
+   "patient": "patient_T012",
+   "criterion": "Must have completed age-appropriate cancer screening.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "Has never completed any cancer screening; colonoscopy and mammography have been repeatedly declined"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T014",
+   "criterion": "High motivation to quit (\u22657/10).",
+   "trap_type": "explicit_numeric",
+   "pinned_verdict": "PASS",
+   "why_wrong": "Motivation to quit rated 2/10"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T018",
+   "criterion": "Adequate social support system for quit attempt.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "no family nearby and no social network to assist a quit attempt"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T031",
+   "criterion": "Current smoker with \u226510 pack-year smoking history.",
+   "trap_type": "explicit_numeric",
+   "pinned_verdict": "PASS",
+   "why_wrong": "smoking history totals roughly 6 pack-years"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T036",
+   "criterion": "Occupational or environmental smoke exposure history.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "Denies any occupational or workplace smoke exposure."
+  },
+  {
+   "protocol": "ONC-003-Prevention",
+   "patient": "patient_T037",
+   "criterion": "Family history of cancer in first-degree relatives.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "No family history of cancer in any first-degree relative."
+  },
+  {
+   "protocol": "ONC-003-Prevention",
+   "patient": "patient_T038",
+   "criterion": "Must have completed age-appropriate cancer screening.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "Has never completed any cancer screening; colonoscopy and mammography repeatedly declined due to anxiety."
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T039",
+   "criterion": "Adequate social support system for quit attempt.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "Denies having any support system available during a quit attempt; lives alone and reports no close friends or family nearby."
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T048",
+   "criterion": "High motivation to quit (\u22657/10).",
+   "trap_type": "explicit_numeric",
+   "pinned_verdict": "PASS",
+   "why_wrong": "Motivation to quit rated 2 out of 10; patient states he is not currently interested in cessation."
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T049",
+   "criterion": "At least 2 previous quit attempts in past 5 years.",
+   "trap_type": "explicit_numeric",
+   "pinned_verdict": "PASS",
+   "why_wrong": "One quit attempt fifteen years ago, none since."
+  },
+  {
+   "protocol": "ONC-003-Prevention",
+   "patient": "patient_T073",
+   "criterion": "Family history of cancer in first-degree relatives.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "neither parent nor any sibling has ever had cancer of any kind"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T080",
+   "criterion": "Occupational or environmental smoke exposure history.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "no workplace or environmental smoke exposure whatsoever"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T086",
+   "criterion": "High motivation to quit (\u22657/10).",
+   "trap_type": "explicit_numeric",
+   "pinned_verdict": "PASS",
+   "why_wrong": "Motivation to quit rated 3/10"
+  },
+  {
+   "protocol": "ONC-003-Prevention",
+   "patient": "patient_T088",
+   "criterion": "Must have completed age-appropriate cancer screening.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "Has declined every screening ever offered; no colonoscopy, no stool testing"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T095",
+   "criterion": "At least 2 previous quit attempts in past 5 years.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "has never once attempted to quit in four decades of smoking"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T103",
+   "criterion": "At least 2 previous quit attempts in past 5 years.",
+   "trap_type": "explicit_numeric",
+   "pinned_verdict": "PASS",
+   "why_wrong": "One quit attempt fifteen years ago and none since"
+  },
+  {
+   "protocol": "ONC-003-Prevention",
+   "patient": "patient_T108",
+   "criterion": "Family history of cancer in first-degree relatives.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "no relatives with cancer on either side of her family across three generations"
+  },
+  {
+   "protocol": "ONC-003-Prevention",
+   "patient": "patient_T115",
+   "criterion": "Must have completed age-appropriate cancer screening.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "has had no cancer screening of any kind and will not schedule a colonoscopy"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T121",
+   "criterion": "High motivation to quit (\u22657/10).",
+   "trap_type": "explicit_numeric",
+   "pinned_verdict": "PASS",
+   "why_wrong": "Motivation to quit rated 4/10"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T122",
+   "criterion": "Occupational or environmental smoke exposure history.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "denies any occupational fume, dust, or smoke exposure"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T129",
+   "criterion": "Adequate social support system for quit attempt.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "knows no one in town who could support a quit attempt"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T139",
+   "criterion": "Current smoker with \u226510 pack-year smoking history.",
+   "trap_type": "explicit_numeric",
+   "pinned_verdict": "PASS",
+   "why_wrong": "total smoking history is about 7 pack-years"
+  },
+  {
+   "protocol": "ONC-003-Prevention",
+   "patient": "patient_T143",
+   "criterion": "Family history of cancer in first-degree relatives.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "not a single blood relative, parent, or sibling has ever been diagnosed with any cancer"
+  },
+  {
+   "protocol": "ONC-003-Prevention",
+   "patient": "patient_T150",
+   "criterion": "Must have completed age-appropriate cancer screening.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "has never undergone any cancer screening in his life and does not intend to start"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T157",
+   "criterion": "High motivation to quit (\u22657/10).",
+   "trap_type": "explicit_numeric",
+   "pinned_verdict": "PASS",
+   "why_wrong": "Motivation to quit rated 1/10"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T158",
+   "criterion": "Occupational or environmental smoke exposure history.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "zero occupational or environmental smoke exposure beyond his own cigarettes"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T165",
+   "criterion": "At least 2 previous quit attempts in past 5 years.",
+   "trap_type": "negation",
+   "pinned_verdict": "PASS",
+   "why_wrong": "has never tried to stop smoking even once"
+  },
+  {
+   "protocol": "RESP-005-Cessation",
+   "patient": "patient_T174",
+   "criterion": "Current smoker with \u226510 pack-year smoking history.",
+   "trap_type": "explicit_numeric",
+   "pinned_verdict": "PASS",
+   "why_wrong": "lifetime history amounts to about 5 pack-years"
+  }
+ ]
+}

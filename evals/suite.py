@@ -174,13 +174,35 @@ def cohort_dry_run():
     if len(notes) != COHORT_PATIENTS:
         failures.append(f"cohort has {len(notes)} notes, expected {COHORT_PATIENTS}")
 
+    # The full trap audit, on every dry run: a structured trap's pinned verdict
+    # must equal its intended verdict, and an unsupported-intent trap may pin
+    # PASS only if the ledger owns that wrong verdict. This keeps the README's
+    # "40 of 40 as planted" a machine-checked fact, not a one-time reading.
     with open(TRAPS, encoding="utf-8") as fh:
         traps = json.load(fh)["traps"]
+    with open(KNOWN_WRONG, encoding="utf-8") as fh:
+        ledger_keys = {(w["patient"], w["criterion"])
+                       for w in json.load(fh)["cases"]}
     for t in traps:
         if t["patient"] not in ids:
             failures.append(f"trap references unknown patient {t['patient']}")
-        elif not any((p, t["patient"]) in pinned for p in PROTOCOLS):
-            failures.append(f"trap patient {t['patient']} missing from pinned cohort")
+            continue
+        rec = pinned.get((t["protocol"], t["patient"]))
+        ev = rec["evidence"].get(t["criterion"]) if rec else None
+        if ev is None:
+            failures.append(f"trap {t['patient']}/{t['criterion'][:40]!r} matches "
+                            f"no pinned criterion")
+            continue
+        got = verdict_of(ev)
+        if t["intended"] in ("PASS", "FAIL", "MAYBE"):
+            if got != t["intended"]:
+                failures.append(f"structured trap drift: {t['patient']}/"
+                                f"{t['criterion'][:40]!r} planted {t['intended']}, "
+                                f"pinned {got}")
+        elif t["intended"] == "unsupported":
+            if got == "PASS" and (t["patient"], t["criterion"]) not in ledger_keys:
+                failures.append(f"unledgered wrong PASS: {t['patient']}/"
+                                f"{t['criterion'][:40]!r}")
 
     with open(KNOWN_WRONG, encoding="utf-8") as fh:
         ledger = json.load(fh)
@@ -348,8 +370,12 @@ def cohort_full(patients_root):
             ok = str(g["is_eligible"]) == str(exp["is_eligible"])
             es, gs = exp["confidence_score"], g["confidence_score"]
             if isinstance(es, (int, float)) != isinstance(gs, (int, float)):
+                failures.append(f"cohort/{proto_id}/{patient['patient_id']}: "
+                                f"score {es!r} -> {gs!r}")
                 ok = False
             elif isinstance(es, (int, float)) and abs(es - gs) > SCORE_TOL:
+                failures.append(f"cohort/{proto_id}/{patient['patient_id']}: "
+                                f"score {es} -> {gs}")
                 ok = False
             for crit, ev in exp["evidence"].items():
                 gv = g["evidence"].get(crit)

@@ -1,0 +1,565 @@
+{
+  "count": 70,
+  "traps": [
+    {
+      "patient": "patient_T003",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Family history of cancer in first-degree relatives.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "No family history of cancer in any first-degree relative"
+    },
+    {
+      "patient": "patient_T005",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "HbA1c level must be less than 8.0%.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "Declined lab draw today; no recent laboratory values on file"
+    },
+    {
+      "patient": "patient_T007",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Occupational or environmental smoke exposure history.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "Denies any occupational or workplace smoke exposure"
+    },
+    {
+      "patient": "patient_T009",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "PASS",
+      "quote": "DOB 1974-03-15 puts age exactly 50 at 2024-05-01"
+    },
+    {
+      "patient": "patient_T011",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must not be a current smoker.",
+      "trap_type": "smoker_mismatch",
+      "intended": "FAIL",
+      "quote": "CSV records is_smoker=true while the note says quit smoking 12 years ago"
+    },
+    {
+      "patient": "patient_T012",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Must have completed age-appropriate cancer screening.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "Has never completed any cancer screening; colonoscopy and mammography have been repeatedly declined"
+    },
+    {
+      "patient": "patient_T014",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "High motivation to quit (\u22657/10).",
+      "trap_type": "explicit_numeric",
+      "intended": "unsupported",
+      "quote": "Motivation to quit rated 2/10"
+    },
+    {
+      "patient": "patient_T015",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "PASS",
+      "quote": "DOB 1954-02-20 puts age exactly 70 at 2024-05-01"
+    },
+    {
+      "patient": "patient_T018",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Adequate social support system for quit attempt.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "no family nearby and no social network to assist a quit attempt"
+    },
+    {
+      "patient": "patient_T021",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "HbA1c level must be less than 8.0%.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "has not had laboratory work drawn in over a year and no recent values are on file"
+    },
+    {
+      "patient": "patient_T024",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "FAIL",
+      "quote": "DOB 1953-04-10 puts age exactly 71 at 2024-05-01, one year past the inclusive upper edge"
+    },
+    {
+      "patient": "patient_T026",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Current smoker status confirmed.",
+      "trap_type": "smoker_mismatch",
+      "intended": "FAIL",
+      "quote": "CSV records is_smoker=false while the note says continues to smoke a pack daily"
+    },
+    {
+      "patient": "patient_T028",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Spirometry FEV1 between 50-80% predicted.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "spirometry was ordered but has not yet been performed, so no pulmonary function values are on file"
+    },
+    {
+      "patient": "patient_T031",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Current smoker with \u226510 pack-year smoking history.",
+      "trap_type": "explicit_numeric",
+      "intended": "unsupported",
+      "quote": "smoking history totals roughly 6 pack-years"
+    },
+    {
+      "patient": "patient_T036",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Occupational or environmental smoke exposure history.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "Denies any occupational or workplace smoke exposure."
+    },
+    {
+      "patient": "patient_T037",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Family history of cancer in first-degree relatives.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "No family history of cancer in any first-degree relative."
+    },
+    {
+      "patient": "patient_T038",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Must have completed age-appropriate cancer screening.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "Has never completed any cancer screening; colonoscopy and mammography repeatedly declined due to anxiety."
+    },
+    {
+      "patient": "patient_T039",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Adequate social support system for quit attempt.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "Denies having any support system available during a quit attempt; lives alone and reports no close friends or family nearby."
+    },
+    {
+      "patient": "patient_T040",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "HbA1c level must be less than 8.0%.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "No recent HbA1c on file; patient last tested by an outside lab and records were never received."
+    },
+    {
+      "patient": "patient_T041",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "HbA1c level must be less than 8.0%.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "Bloodwork ordered today but not yet resulted; HbA1c pending."
+    },
+    {
+      "patient": "patient_T042",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Spirometry FEV1 between 50-80% predicted.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "Spirometry ordered but not yet completed; results pending, patient rescheduled due to transportation issues."
+    },
+    {
+      "patient": "patient_T043",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "PASS",
+      "quote": "Female, 50 years old"
+    },
+    {
+      "patient": "patient_T044",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "PASS",
+      "quote": "Male, 70 years old"
+    },
+    {
+      "patient": "patient_T045",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "FAIL",
+      "quote": "Female, 71 years old"
+    },
+    {
+      "patient": "patient_T046",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Current smoker status confirmed.",
+      "trap_type": "smoker_mismatch",
+      "intended": "PASS",
+      "quote": "Reports quitting smoking 12 years ago after a 15 pack-year history, denies any current tobacco use. (chart data: is_smoker=true)"
+    },
+    {
+      "patient": "patient_T047",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Current smoker status confirmed.",
+      "trap_type": "smoker_mismatch",
+      "intended": "FAIL",
+      "quote": "Currently smoking about a pack a day, reports increasing amount over past year due to stress. (chart data: is_smoker=false)"
+    },
+    {
+      "patient": "patient_T048",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "High motivation to quit (\u22657/10).",
+      "trap_type": "explicit_numeric",
+      "intended": "unsupported",
+      "quote": "Motivation to quit rated 2 out of 10; patient states he is not currently interested in cessation."
+    },
+    {
+      "patient": "patient_T049",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "At least 2 previous quit attempts in past 5 years.",
+      "trap_type": "explicit_numeric",
+      "intended": "unsupported",
+      "quote": "One quit attempt fifteen years ago, none since."
+    },
+    {
+      "patient": "patient_T073",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Family history of cancer in first-degree relatives.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "neither parent nor any sibling has ever had cancer of any kind"
+    },
+    {
+      "patient": "patient_T075",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "HbA1c level must be less than 8.0%.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "no laboratory results exist in the record"
+    },
+    {
+      "patient": "patient_T077",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "PASS",
+      "quote": "DOB 1974-04-20 puts age exactly 50 at 2024-05-01"
+    },
+    {
+      "patient": "patient_T080",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Occupational or environmental smoke exposure history.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "no workplace or environmental smoke exposure whatsoever"
+    },
+    {
+      "patient": "patient_T082",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must not be a current smoker.",
+      "trap_type": "smoker_mismatch",
+      "intended": "FAIL",
+      "quote": "CSV records is_smoker=true while the note says has never smoked a cigarette in his life"
+    },
+    {
+      "patient": "patient_T084",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "HbA1c level must be less than 8.0%.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "his transferred chart contains no laboratory data, with no draws since arriving"
+    },
+    {
+      "patient": "patient_T086",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "High motivation to quit (\u22657/10).",
+      "trap_type": "explicit_numeric",
+      "intended": "unsupported",
+      "quote": "Motivation to quit rated 3/10"
+    },
+    {
+      "patient": "patient_T088",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Must have completed age-appropriate cancer screening.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "Has declined every screening ever offered; no colonoscopy, no stool testing"
+    },
+    {
+      "patient": "patient_T090",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "PASS",
+      "quote": "DOB 1954-01-31 puts age exactly 70 at 2024-05-01"
+    },
+    {
+      "patient": "patient_T095",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "At least 2 previous quit attempts in past 5 years.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "has never once attempted to quit in four decades of smoking"
+    },
+    {
+      "patient": "patient_T097",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Current smoker status confirmed.",
+      "trap_type": "smoker_mismatch",
+      "intended": "FAIL",
+      "quote": "CSV records is_smoker=false while the note says smokes a pack and a half daily"
+    },
+    {
+      "patient": "patient_T099",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Spirometry FEV1 between 50-80% predicted.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "the patient missed both appointments, so no spirometry values exist on file"
+    },
+    {
+      "patient": "patient_T101",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "FAIL",
+      "quote": "DOB 1975-03-05 puts age exactly 49 at 2024-05-01, one year under the inclusive lower edge"
+    },
+    {
+      "patient": "patient_T103",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "At least 2 previous quit attempts in past 5 years.",
+      "trap_type": "explicit_numeric",
+      "intended": "unsupported",
+      "quote": "One quit attempt fifteen years ago and none since"
+    },
+    {
+      "patient": "patient_T108",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Family history of cancer in first-degree relatives.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "no relatives with cancer on either side of her family across three generations"
+    },
+    {
+      "patient": "patient_T110",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "HbA1c level must be less than 8.0%.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "there are no laboratory values anywhere in her chart"
+    },
+    {
+      "patient": "patient_T112",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "PASS",
+      "quote": "DOB 1974-01-10 puts age exactly 50 at 2024-05-01"
+    },
+    {
+      "patient": "patient_T115",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Must have completed age-appropriate cancer screening.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "has had no cancer screening of any kind and will not schedule a colonoscopy"
+    },
+    {
+      "patient": "patient_T117",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must not be a current smoker.",
+      "trap_type": "smoker_mismatch",
+      "intended": "FAIL",
+      "quote": "CSV records is_smoker=true while the note says quit smoking 8 years ago"
+    },
+    {
+      "patient": "patient_T119",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "HbA1c level must be less than 8.0%.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "no laboratory records were ever transferred and none exist locally"
+    },
+    {
+      "patient": "patient_T121",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "High motivation to quit (\u22657/10).",
+      "trap_type": "explicit_numeric",
+      "intended": "unsupported",
+      "quote": "Motivation to quit rated 4/10"
+    },
+    {
+      "patient": "patient_T122",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Occupational or environmental smoke exposure history.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "denies any occupational fume, dust, or smoke exposure"
+    },
+    {
+      "patient": "patient_T125",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "FAIL",
+      "quote": "DOB 1953-03-18 puts age exactly 71 at 2024-05-01, one year past the inclusive upper edge"
+    },
+    {
+      "patient": "patient_T129",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Adequate social support system for quit attempt.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "knows no one in town who could support a quit attempt"
+    },
+    {
+      "patient": "patient_T131",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Current smoker status confirmed.",
+      "trap_type": "smoker_mismatch",
+      "intended": "FAIL",
+      "quote": "CSV records is_smoker=false while the note says smokes half a pack daily"
+    },
+    {
+      "patient": "patient_T133",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Spirometry FEV1 between 50-80% predicted.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "equipment failures cancelled both sessions, leaving no pulmonary function values on file"
+    },
+    {
+      "patient": "patient_T137",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "PASS",
+      "quote": "DOB 1954-04-25 puts age exactly 70 at 2024-05-01"
+    },
+    {
+      "patient": "patient_T139",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Current smoker with \u226510 pack-year smoking history.",
+      "trap_type": "explicit_numeric",
+      "intended": "unsupported",
+      "quote": "total smoking history is about 7 pack-years"
+    },
+    {
+      "patient": "patient_T143",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Family history of cancer in first-degree relatives.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "not a single blood relative, parent, or sibling has ever been diagnosed with any cancer"
+    },
+    {
+      "patient": "patient_T145",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "HbA1c level must be less than 8.0%.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "the chart currently holds no laboratory values of any kind"
+    },
+    {
+      "patient": "patient_T147",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "PASS",
+      "quote": "DOB 1974-02-08 puts age exactly 50 at 2024-05-01"
+    },
+    {
+      "patient": "patient_T150",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Must have completed age-appropriate cancer screening.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "has never undergone any cancer screening in his life and does not intend to start"
+    },
+    {
+      "patient": "patient_T152",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must not be a current smoker.",
+      "trap_type": "smoker_mismatch",
+      "intended": "FAIL",
+      "quote": "CSV records is_smoker=true while the note says she has never smoked"
+    },
+    {
+      "patient": "patient_T155",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "HbA1c level must be less than 8.0%.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "no blood work has been performed in over three years and the record contains no lab results"
+    },
+    {
+      "patient": "patient_T157",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "High motivation to quit (\u22657/10).",
+      "trap_type": "explicit_numeric",
+      "intended": "unsupported",
+      "quote": "Motivation to quit rated 1/10"
+    },
+    {
+      "patient": "patient_T158",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Occupational or environmental smoke exposure history.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "zero occupational or environmental smoke exposure beyond his own cigarettes"
+    },
+    {
+      "patient": "patient_T160",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "FAIL",
+      "quote": "DOB 1953-01-27 puts age exactly 71 at 2024-05-01, one year past the inclusive upper edge"
+    },
+    {
+      "patient": "patient_T165",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "At least 2 previous quit attempts in past 5 years.",
+      "trap_type": "negation",
+      "intended": "unsupported",
+      "quote": "has never tried to stop smoking even once"
+    },
+    {
+      "patient": "patient_T167",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Current smoker status confirmed.",
+      "trap_type": "smoker_mismatch",
+      "intended": "FAIL",
+      "quote": "CSV records is_smoker=false while the note says smokes about a pack a day"
+    },
+    {
+      "patient": "patient_T170",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Spirometry FEV1 between 50-80% predicted.",
+      "trap_type": "missing_lab",
+      "intended": "MAYBE",
+      "quote": "transportation issues have prevented testing, so the chart holds no pulmonary function values"
+    },
+    {
+      "patient": "patient_T172",
+      "protocol": "ONC-003-Prevention",
+      "criterion": "Patient must be between 50 and 70 years of age (inclusive).",
+      "trap_type": "borderline_age",
+      "intended": "PASS",
+      "quote": "DOB 1954-03-11 puts age exactly 70 at 2024-05-01"
+    },
+    {
+      "patient": "patient_T174",
+      "protocol": "RESP-005-Cessation",
+      "criterion": "Current smoker with \u226510 pack-year smoking history.",
+      "trap_type": "explicit_numeric",
+      "intended": "unsupported",
+      "quote": "lifetime history amounts to about 5 pack-years"
+    }
+  ]
+}

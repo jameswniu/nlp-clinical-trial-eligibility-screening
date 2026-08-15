@@ -1,0 +1,6 @@
+Patient T066, Female, 78 years old, presents for follow-up on Type 2 Diabetes. DOB 1946-04-12.
+HbA1c (April 2024) was 6.9%. Diagnosed with Type 2 Diabetes in 2010, stable on Metformin.
+Never smoked tobacco. Family history includes mother with cervical cancer diagnosed at 45.
+Last mammography was October 2023, normal results. Colonoscopy completed 2019, no polyps found.
+Drinks alcohol rarely. No personal history of malignancy. No current immunosuppressive therapy.
+No signs of heart failure or cardiac disease.

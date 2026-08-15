@@ -1,0 +1,7 @@
+Patient T046, Male, 55 years old, presents for follow-up on chronic respiratory symptoms. DOB 1969-03-03.
+Reports quitting smoking 12 years ago after a 15 pack-year history, denies any current tobacco use.
+FEV1 this visit 60% predicted. HbA1c (March 2024) was 6.5%.
+No active respiratory infection in past 4 weeks. No supplemental oxygen use.
+No recent smoking cessation medications in past 30 days, none needed per patient report.
+Psychiatric history unremarkable. No recent major life stressors.
+Chart tobacco-use field on file indicates current smoker status pending nursing reconciliation at next visit.

@@ -1,0 +1,6 @@
+Patient T045, Female, 71 years old, presents for annual wellness examination. DOB 1953-04-21.
+HbA1c (January 2024) was 7.0%. Diagnosed with Type 2 Diabetes in 2015, stable on Glipizide.
+Never smoked tobacco. Family history includes mother with ovarian cancer diagnosed at 68.
+Last mammography was December 2023, normal results. Colonoscopy completed 2019, no abnormal findings.
+Drinks alcohol occasionally, less than one drink per week. No personal history of malignancy.
+No current immunosuppressive therapy. No signs of heart failure or cardiac disease.
