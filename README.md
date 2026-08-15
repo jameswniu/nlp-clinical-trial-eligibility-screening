@@ -77,6 +77,8 @@ COSINE_PASS                               0.10           -          -  AUTHORED
 
 A criterion with no support anywhere in the note scores 0.29. A criterion the note supports explicitly, 35 years of documented occupational exposure, scores 0.12. The loudest row: "Must be non-smoker for at least 5 years" scores 0.51 on a patient whose note says active smoker, 18 pack-years. Cosine similarity sees the topic and cannot see the negation.
 
+<p align="center"><img src="assets/threshold-refutation.svg" alt="Strip plot of all 17 labelled similarity scores by human verdict: supported criteria score as low as 0.12, an unsupported one scores 0.51, and the two dashed threshold lines at 0.10 and 0.15 separate nothing" width="100%"></p>
+
 So no cutoff on that axis separates supported from unsupported. The split is pinned rather than hidden: `evals/derivation.expected.json` records 0 of 3 derived, and CI goes red if it moves either way without a re-review. Decision safety rests on the FAIL override and on abstention, which is what the labelled rows recommend.
 
 ## Architecture
@@ -158,6 +160,8 @@ Threshold exemplars live in `evals/labels.csv`. Each row quotes the score the sh
 4. **Small formulas rot quietly.** `days // 365` overstated a patient's age by one year against her own clinical note. An uppercase `CHF` synonym key sat unreachable below a lowercasing lookup. The first real test pass caught both. Neither changed a decision; both are the kind that eventually does.
 
 ## The numbers
+
+<p align="center"><img src="assets/screening-outcomes.svg" alt="Two panels from the goldens: per-protocol funnels showing 7 of 25 and 5 of 25 patients eligible, and the 550 criterion verdicts split into 436 PASS, 67 MAYBE, 47 FAIL" width="100%"></p>
 
 | what | value | how it is known |
 | --- | --- | --- |
