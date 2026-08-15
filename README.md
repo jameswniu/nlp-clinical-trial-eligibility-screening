@@ -84,32 +84,27 @@ So no cutoff on that axis separates supported from unsupported. The split is pin
 Six small modules, one direction of flow, and a gate underneath the whole thing.
 
 ```mermaid
-%%{init: {"flowchart": {"htmlLabels": true, "curve": "linear"}, "themeVariables": {"fontSize": "16px"}}}%%
 flowchart TD
     subgraph IN [inputs]
-        P["protocol YAMLs<br/>inclusion + exclusion criteria"]
-        C["patients.csv + lab_results.csv"]
-        N["clinical notes, 25 synthetic"]
+        P["protocol YAMLs"]
+        C["patients.csv + labs.csv"]
+        N["25 clinical notes"]
     end
-    subgraph NORM [normalize]
-        S["protocol_sorter.py<br/>repair YAML, split criteria"]
-        L["data_loader.py<br/>one profile per patient"]
+    S["protocol_sorter.py<br/>repair + split criteria"]
+    L["data_loader.py<br/>one profile per patient"]
+    subgraph EV [evaluate]
+        E["structured lane<br/>age, flags, labs"]
+        M["semantic lane<br/>MiniLM matching"]
     end
-    subgraph EVAL [evaluate]
-        E["protocol_evaluator.py<br/>structured: age, flags, labs"]
-        M["note_parser.py<br/>unstructured: MiniLM matching"]
-    end
-    V["per criterion: PASS / MAYBE / FAIL<br/>evidence string + score"]
-    O["orchestrator.py<br/>confidence, sort, one JSON per protocol"]
-    G["the gate: evals/suite.py + derive.py<br/>50 golden decisions replayed in CI"]
+    V["PASS / MAYBE / FAIL per criterion<br/>evidence string + score"]
+    O["orchestrator.py<br/>confidence, sort, JSON"]
+    G["the gate: 50 golden decisions<br/>replayed in CI"]
 
     P --> S
     C --> L
     N --> L
-    S --> E
-    L --> E
-    L --> M
-    S --> M
+    S --> EV
+    L --> EV
     E --> V
     M --> V
     V --> O
