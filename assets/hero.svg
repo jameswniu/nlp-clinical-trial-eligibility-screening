@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" role="img" aria-label="Clinical trial eligibility screening that abstains instead of guessing: 50 golden decisions replayed in CI, 67 of 550 criterion verdicts abstain and say why, and hand-checking the shipped outputs caught 7 wrong admissions">
   <defs>
     <linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#14181d"/>
-      <stop offset="1" stop-color="#1c232a"/>
+      <stop offset="0" stop-color="#0e1613"/>
+      <stop offset="1" stop-color="#17261f"/>
     </linearGradient>
   </defs>
   <style>
-    .ht  { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; fill: #e8ebee; font-size: 48px; font-weight: 700; text-anchor: middle; }
-    .hs  { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9fa9b2; font-size: 27px; text-anchor: middle; }
-    .num { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; fill: #a9c7dd; font-size: 40px; font-weight: 700; text-anchor: middle; }
-    .lab { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; fill: #9fa9b2; font-size: 22px; text-anchor: middle; }
-    .kw  { fill: #a9c7dd; }
+    .ht  { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; fill: #ecf5f0; font-size: 48px; font-weight: 700; text-anchor: middle; }
+    .hs  { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; fill: #a7c3b6; font-size: 27px; text-anchor: middle; }
+    .num { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; fill: #7cc9a4; font-size: 40px; font-weight: 700; text-anchor: middle; }
+    .lab { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; fill: #a7c3b6; font-size: 22px; text-anchor: middle; }
+    .kw  { fill: #7cc9a4; }
   </style>
   <rect width="1200" height="340" fill="url(#hbg)"/>
-  <rect x="0" y="0" width="1200" height="3" fill="#45525f"/>
+  <rect x="0" y="0" width="1200" height="3" fill="#57977c"/>
 
   <text x="600" y="96" class="ht">Clinical Trial Eligibility Screening</text>
   <text x="600" y="146" class="hs">Evidence-cited verdicts that <tspan class="kw">abstain instead of guessing</tspan>, gated in CI</text>
