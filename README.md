@@ -5,7 +5,6 @@
 <b><font size="6">Clinical Trial Eligibility Screening</font></b>
 
 [![ci](https://github.com/jameswniu/nlp-clinical-trial-eligibility-screening/actions/workflows/ci.yml/badge.svg)](https://github.com/jameswniu/nlp-clinical-trial-eligibility-screening/actions/workflows/ci.yml)
-![golden repo](https://img.shields.io/badge/%E2%98%85-golden_repo-d4a017?style=flat-square&labelColor=0c1013)
 ![decisions](https://img.shields.io/badge/decisions-50_%C2%B7_25x2-dfe3e0?style=flat-square&labelColor=0c1013)
 ![agreement](https://img.shields.io/badge/agreement-50%2F50_recomputed-8f9491?style=flat-square&labelColor=0c1013)
 ![abstains](https://img.shields.io/badge/abstains-67_%C2%B7_each_says_why-8f9491?style=flat-square&labelColor=0c1013)
@@ -26,7 +25,7 @@ and the gate that caught them now runs in CI, guarding even its own refuted thre
 
 ---
 
-## The 90 second tour
+## Where to look first
 
 Every verdict ships with its evidence, and CI replays the 50 verified decisions, the 350-decision pinned cohort, and the threshold audit on every push.
 
@@ -179,7 +178,7 @@ Throughput is machine-dependent, so it ships as a recorded measurement with its 
 
 Last recorded run: 35.3 patients/s over 1,000 generated patients (2,000 decisions in 28.3s), peak 873MB RSS, on an aarch64 Linux container, Python 3.12, torch 2.13 (cu130 wheel, CPU execution). Abstention rate was homogeneous across strata: 5.0% of criterion verdicts for smokers, 5.7% for nonsmokers. The 1,000-patient corpus is templated and seeded (never golden, never committed); it regenerates byte-identically from `bench/generate.py`.
 
-## What measuring it taught
+## What the gate taught
 
 1. **The baseline can be the bug.** The committed outputs carried mojibake: the normalizer wrote `≥` as `â‰¥` through a default-encoding write, and the corruption sat inside the regression baseline itself. Verify the goldens before trusting the goldens.
 2. **Polite abstention can hide a dead feature.** The lab gate never ran, and `MAYBE (no data for lab_result)` read like caution rather than breakage. 7 of 25 admissions were wrong. Count what abstains, and ask why.
@@ -187,7 +186,7 @@ Last recorded run: 35.3 patients/s over 1,000 generated patients (2,000 decision
 4. **Small formulas rot quietly.** `days // 365` overstated a patient's age by one year against her own clinical note. An uppercase `CHF` synonym key sat unreachable below a lowercasing lookup. The first real test pass caught both. Neither changed a decision; both are the kind that eventually does.
 5. **Planting traps beats sampling for a known weakness.** The negation blindness was established on 17 labels; 30 planted traps confirmed it at a 100% hit rate, while all 40 deterministic traps passed clean. The failure is not random noise to sample for. It is a structural property of the instrument, and the ledger now holds its exact boundary.
 
-## The numbers
+## Every number, with its receipt
 
 <p align="center"><img src="assets/screening-outcomes.svg" alt="Two panels from the goldens: per-protocol funnels showing 7 of 25 and 5 of 25 patients eligible, and the 550 criterion verdicts split into 436 PASS, 67 MAYBE, 47 FAIL" width="100%"></p>
 
@@ -206,7 +205,7 @@ Last recorded run: 35.3 patients/s over 1,000 generated patients (2,000 decision
 
 `tools/readme_numbers.py --check` regenerates every counted row above from its artifact on every CI run, except the last two, which are historical measurements recorded in their commits.
 
-## What ships here, and what does not
+## The claim boundary
 
 Everything runs on a fresh clone: pipeline, tests, both golden tiers, the trap audit, the bench, threshold derivation, Docker files, and all the data. Zero PHI by construction: every patient, note, and lab value is invented.
 
