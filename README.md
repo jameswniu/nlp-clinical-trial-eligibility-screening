@@ -90,12 +90,11 @@ Six small modules, one direction of flow, and a gate underneath the whole thing.
 
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {
-  "fontFamily": "ui-monospace, SFMono-Regular, Menlo, monospace",
-  "fontSize": "15px",
-  "primaryColor": "#131a21", "primaryTextColor": "#dfe3e0", "primaryBorderColor": "#2a3540",
-  "lineColor": "#5b6570", "textColor": "#8f9491",
-  "clusterBkg": "#0f151b", "clusterBorder": "#24303a",
-  "edgeLabelBackground": "#0c1013", "tertiaryColor": "#0f151b"
+  "fontSize": "16px",
+  "primaryColor": "#0c1013", "primaryTextColor": "#e6eae8", "primaryBorderColor": "#46555f",
+  "lineColor": "#7a8691", "textColor": "#b8c0bd",
+  "clusterBkg": "#223140", "clusterBorder": "#3d4f5e",
+  "edgeLabelBackground": "#0c1013", "tertiaryColor": "#223140"
 }}}%%
 flowchart TD
     subgraph IN [inputs]
