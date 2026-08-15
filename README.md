@@ -81,7 +81,12 @@ So no cutoff on that axis separates supported from unsupported. The split is pin
 
 ## Architecture
 
+<p align="center"><img src="assets/architecture.svg" alt="Data flow: protocol YAMLs, patient CSVs, and clinical notes are normalized into profiles and criteria, evaluated down a structured lane and a MiniLM semantic lane, and emitted as per-criterion verdicts with evidence strings and confidence; a golden-dataset gate replays all 50 decisions in CI" width="100%"></p>
+
 Six small modules, one direction of flow, and a gate underneath the whole thing.
+
+<details>
+<summary>Mermaid source for this diagram</summary>
 
 ```mermaid
 flowchart TD
@@ -110,6 +115,8 @@ flowchart TD
     V --> O
     O --> G
 ```
+
+</details>
 
 `protocol_sorter.py` repairs the protocol YAML and splits criteria into structured and unstructured. (The source files ship with a dangling list, deliberately kept.) `data_loader.py` builds one profile per patient: age from calendar arithmetic, smoker flag, most-recent lab per test, note text. `protocol_evaluator.py` runs the structured comparisons. `note_parser.py` tries a synonym shortcut, then MiniLM similarity, then a bag-of-words fallback. The orchestrator sorts eligible patients first by confidence and writes one JSON per protocol.
 
@@ -212,7 +219,7 @@ evals/
   derive.py           thresholds vs labels, refutation pinned and guarded
   suite.py            --dry-run (free, CI) and --full (model recompute)
 tools/readme_numbers.py   every counted number here, regenerated or failed
-assets/               the hero SVG, XML-checked in CI
+assets/               hand-authored SVGs, XML-checked in CI
 output/               the shipped decision JSONs the goldens were seeded from
 ```
 
