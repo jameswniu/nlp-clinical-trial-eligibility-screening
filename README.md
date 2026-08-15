@@ -5,6 +5,7 @@
 <b><font size="6">Clinical Trial Eligibility Screening</font></b>
 
 [![ci](https://github.com/jameswniu/nlp-clinical-trial-eligibility-screening/actions/workflows/ci.yml/badge.svg)](https://github.com/jameswniu/nlp-clinical-trial-eligibility-screening/actions/workflows/ci.yml)
+![golden repo](https://img.shields.io/badge/%E2%98%85-golden_repo-d4a017?style=flat-square&labelColor=0c1013)
 ![decisions](https://img.shields.io/badge/decisions-50_%C2%B7_25x2-dfe3e0?style=flat-square&labelColor=0c1013)
 ![agreement](https://img.shields.io/badge/agreement-50%2F50_recomputed-8f9491?style=flat-square&labelColor=0c1013)
 ![abstains](https://img.shields.io/badge/abstains-67_%C2%B7_each_says_why-8f9491?style=flat-square&labelColor=0c1013)
