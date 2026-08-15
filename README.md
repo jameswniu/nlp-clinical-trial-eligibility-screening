@@ -15,7 +15,7 @@
 <strong>A screening pipeline that abstains instead of guessing, and the eval harness that caught it guessing anyway.</strong>
 
 The interesting part is not the matching.<br/>
-It is that hand-checking all 50 shipped decisions caught 7 wrong admissions the pipeline had reported with confidence,<br/>
+It is that hand-checking all 50 shipped decisions caught 7 wrong admissions,<br/>
 and the gate that caught them now runs in CI, guarding even its own refuted thresholds.
 
 <code>normalize -> compare -> abstain-or-decide -> explain</code>
@@ -26,19 +26,19 @@ and the gate that caught them now runs in CI, guarding even its own refuted thre
 
 ## The 90 second tour
 
-Every decision this pipeline makes carries its evidence: each criterion gets PASS, MAYBE, or FAIL with the exact comparison or match score that produced it, missing data abstains by name instead of defaulting, and one FAIL disqualifies no matter how good the rest looks. The eval layer is the larger half of the repo: a 50-decision golden dataset, hand-labelled exemplars for every semantic threshold, and a CI gate that replays all of it on every push.
+Every verdict ships with its evidence, and CI replays all 50 golden decisions plus the threshold audit on every push.
 
 | if you want | go to |
 | --- | --- |
 | the decision a reviewer would audit | [Why the MAYBE verdict is the point](#why-the-maybe-verdict-is-the-point) |
 | the bug the gate caught | [Hand-checking 50 shipped decisions caught 7 wrong admissions](#hand-checking-50-shipped-decisions-caught-7-wrong-admissions) |
 | the claim the labels killed | [The labels refuted my own thresholds](#the-labels-refuted-my-own-thresholds) |
-| to run the whole gate free, in one command | [The gate CI actually runs](#the-gate-ci-actually-runs) |
+| the whole gate, free, in one command | [The gate CI actually runs](#the-gate-ci-actually-runs) |
 | what is not claimed | [What this cannot tell you](#what-this-cannot-tell-you) |
 
 ## Why the MAYBE verdict is the point
 
-Screening a patient against a trial protocol is a decision someone else has to defend later. So the unit of output here is not a score, it is a verdict with its receipt:
+A screening decision is one somebody else has to defend later. So the unit of output is a verdict with its receipt:
 
 ```
 "HbA1c level must be less than 8.0%.":            "FAIL (HbA1c=8.1 not lt 8.0)"
@@ -46,25 +46,25 @@ Screening a patient against a trial protocol is a decision someone else has to d
 "Spirometry FEV1 between 50-80% predicted.":      "MAYBE (no data for FEV1_percent)"
 ```
 
-Three properties are load-bearing, and each is pinned by tests and the golden gate:
+Three rules carry the safety weight:
 
-- **Missing data abstains by name.** No FEV1 in the record means `MAYBE (no data for FEV1_percent)`, never a silent pass. 67 of the 550 shipped criterion verdicts abstain, and every one names its gap.
-- **One FAIL disqualifies.** Confidence is the mean of PASS=1 and MAYBE=0.5, and it is computed only when nothing failed. A patient with a disqualifying lab does not get argued back in by strong semantic matches elsewhere.
-- **Confidence is arithmetic you can redo by hand.** The dry-run gate re-derives every stored confidence from its own stored verdicts, so the formula cannot drift without CI noticing.
+- **Missing data abstains by name.** No FEV1 in the record yields `MAYBE (no data for FEV1_percent)`, never a silent pass. 67 of 550 shipped verdicts abstain, and each names its gap.
+- **One FAIL disqualifies.** A patient with a disqualifying lab cannot be argued back in by strong matches elsewhere.
+- **Confidence re-derives by hand.** It is the mean of PASS=1 and MAYBE=0.5. The dry-run gate recomputes every stored value from its own verdicts, so the formula cannot drift without CI noticing.
 
-Unstructured criteria (family history, occupational exposure, motivation to quit) are matched against the clinical note with MiniLM sentence embeddings, and the score ships inside the evidence string. That instrument is weak, which is the second finding below, and the reason the MAYBE tier and the FAIL override carry the safety weight.
+Unstructured criteria, like family history or occupational exposure, are matched against the clinical note with MiniLM embeddings, and the match score ships inside the evidence string. Similarity turned out to be a weak instrument. The refutation section below measures how weak.
 
 ## Hand-checking 50 shipped decisions caught 7 wrong admissions
 
-The golden dataset was seeded from the pipeline's own committed outputs and then verified by hand against the raw records. That pass found the oncology protocol admitting patients its own lab criterion should have excluded: the evaluator resolved a criterion's field only through `field`/`type` and never `test_name`, so every lab criterion abstained with `no data for lab_result` while the HbA1c value sat loaded in the patient profile.
+The goldens were seeded from the pipeline's own outputs, then verified by hand against the raw records. That pass caught the oncology protocol admitting patients its lab criterion should have excluded.
 
-The abstention was polite, visible, and wrong, and because MAYBE counts half instead of disqualifying, it quietly inflated 7 of 25 oncology admissions: patients with HbA1c between 8.1 and 9.5 were reported eligible with confidence up to 0.94 against a protocol requiring less than 8.0.
+The cause: the evaluator resolved a criterion's field through `field` and `type` but never `test_name`. Every lab criterion abstained with `no data for lab_result` while the HbA1c value sat loaded in the profile. MAYBE counts half instead of disqualifying, so the miss inflated 7 of 25 oncology admissions. Patients with HbA1c between 8.1 and 9.5 were reported eligible, at confidence up to 0.94, against a protocol requiring less than 8.0.
 
-One line fixed it, 25 criterion verdicts changed, 7 of 25 eligibility decisions flipped, and the re-verified outputs are the goldens CI now replays. The caveat, stated as loudly as the finding: these are 25 synthetic patients and one labeller, so the number that matters is not 7, it is that the audit machinery exists and runs on every push.
+One line fixed it. 25 criterion verdicts changed, 7 eligibility decisions flipped, and the re-verified outputs are the goldens CI now replays. The caveat is real: 25 synthetic patients, one labeller. What lasts is not the 7, it is the audit that now runs on every push.
 
 ## The labels refuted my own thresholds
 
-The semantic thresholds were supposed to be derived, not typed: hand-label exemplar (note, criterion) pairs, then require each named constant to sit inside the interval its labels imply. `evals/derive.py` is that claim, executable. It came back with a verdict I did not want:
+The semantic thresholds were supposed to be derived, not typed: label exemplar pairs by hand, then require each named constant to sit inside the interval its labels imply. `evals/derive.py` is that claim, executable. It came back with a verdict I did not want:
 
 ```
 GATE                                     VALUE  BELOW EDGE ABOVE EDGE  STATUS
@@ -75,21 +75,40 @@ COSINE_PASS                               0.10           -          -  AUTHORED
 0 of 3 named gating thresholds are DERIVED from labelled exemplars.
 ```
 
-A criterion with no support anywhere in the note scores 0.29. A criterion the note supports explicitly, 35 years of documented occupational exposure, scores 0.12. And the loudest row: "Must be non-smoker for at least 5 years" scores 0.51 on a patient whose note says active smoker, 18 pack-years, because cosine similarity sees the topic and cannot see the negation. No cutoff on that axis separates supported from unsupported: **0 of 3** thresholds derive, **2 refuted** by their own labels, 1 authored with no exemplar pair on its axis.
+A criterion with no support anywhere in the note scores 0.29. A criterion the note supports explicitly, 35 years of documented occupational exposure, scores 0.12. The loudest row: "Must be non-smoker for at least 5 years" scores 0.51 on a patient whose note says active smoker, 18 pack-years. Cosine similarity sees the topic and cannot see the negation.
 
-The response is not to hide the number. The refutation itself is pinned in `evals/derivation.expected.json` and guarded by CI: if a change silently makes the split look better or worse, the build goes red until the expectation is re-reviewed. The decision-level safety does not rest on these thresholds; it rests on the FAIL override and on abstention, which is exactly what the 17 labelled rows say it should.
+So no cutoff on that axis separates supported from unsupported. The split is pinned rather than hidden: `evals/derivation.expected.json` records 0 of 3 derived, and CI goes red if it moves either way without a re-review. Decision safety rests on the FAIL override and on abstention, which is what the labelled rows recommend.
 
 ## Architecture
 
 <p align="center"><img src="assets/architecture.svg" alt="Data flow: protocol YAMLs, patient CSVs, and clinical notes are normalized into profiles and criteria, evaluated down a structured lane and a MiniLM semantic lane, and emitted as per-criterion verdicts with evidence strings and confidence; a golden-dataset gate replays all 50 decisions in CI" width="100%"></p>
 
-Six small modules, one direction of flow. `protocol_sorter.py` repairs the protocol YAML (the source files ship with a dangling list, deliberately kept) and splits criteria into structured and unstructured. `data_loader.py` builds one profile per patient: age from calendar arithmetic, smoker flag, most-recent lab per test, note text. `protocol_evaluator.py` runs the structured comparisons; `note_parser.py` runs synonym shortcut, then MiniLM similarity, then a bag-of-words fallback. The orchestrator sorts eligible first by confidence and writes one JSON per protocol.
+Six small modules, one direction of flow. `protocol_sorter.py` repairs the protocol YAML and splits criteria into structured and unstructured. (The source files ship with a dangling list, deliberately kept.) `data_loader.py` builds one profile per patient: age from calendar arithmetic, smoker flag, most-recent lab per test, note text. `protocol_evaluator.py` runs the structured comparisons. `note_parser.py` tries a synonym shortcut, then MiniLM similarity, then a bag-of-words fallback. The orchestrator sorts eligible patients first by confidence and writes one JSON per protocol.
 
-The embedding model loads lazily and the scorer is injectable, so the deterministic core imports and tests without torch installed. That seam is what keeps the CI checks job at zero model downloads.
+The embedding model loads lazily and the scorer is injectable. The deterministic core imports and tests without torch installed, which keeps the CI checks job at zero model downloads.
+
+<details>
+<summary>Mermaid source for this diagram</summary>
+
+```mermaid
+flowchart TD
+    A[patients.csv + lab_results.csv + clinical_notes/] --> B[data_loader.py]
+    B --> C[patient profiles]
+    D[protocol YAMLs] --> E[protocol_sorter.py]
+    E --> F[normalized criteria]
+    C --> G[protocol_evaluator.py + note_parser.py]
+    F --> G
+    G --> H[per-criterion PASS / MAYBE / FAIL + evidence + score]
+    H --> I[orchestrator.py]
+    I --> J[console + output/ JSON]
+    J --> K[evals/suite.py vs 50 goldens, in CI]
+```
+
+</details>
 
 ## The gate CI actually runs
 
-Free tier, no model, no network beyond pip. This is the literal `checks` job, and `make ci` runs the same commands locally:
+Free tier first: no model, no network beyond pip. The `checks` job runs these commands, and `make ci` runs the same ones locally:
 
 ```
 python -m pytest -m "not slow" -v      # 41 tests over the deterministic core
@@ -101,16 +120,16 @@ python tools/readme_numbers.py --check # every counted number in this README
                                        # regenerates from its artifact
 ```
 
-Model tier, the `eval-full` job: recompute all 50 decisions with the real MiniLM stack and compare to the goldens. Eligibility and per-criterion verdicts must match exactly; numeric scores get a 0.02 tolerance because embedding stacks differ across torch builds, and a real regression moves a verdict, not a third decimal. Last recorded run: **50 of 50** decisions agree, **17 of 17** labelled scores re-measured within tolerance (`evals/last_full_run.json`, committed).
+The `eval-full` job recomputes all 50 decisions with the real MiniLM stack. Eligibility and per-criterion verdicts must match the goldens exactly. Scores get a 0.02 tolerance, because embedding stacks differ across torch builds and a real regression moves a verdict, not a third decimal. Last recorded run: 50 of 50 decisions agree, 17 of 17 labelled scores re-measured within tolerance (`evals/last_full_run.json`, committed).
 
-The threshold derivation reads its exemplars from `evals/labels.csv`. Each row quotes the score the shipped output carries for that exact patient and criterion, and derive.py fails if any quoted score stops appearing verbatim, so a label cannot drift away from the artifact it cites.
+Threshold exemplars live in `evals/labels.csv`. Each row quotes the score the shipped output carries for that patient and criterion, and derive.py fails if any quoted score stops appearing verbatim. A label cannot drift from the artifact it cites.
 
 ## What measuring it taught
 
-1. **The baseline can be the bug.** The committed outputs, the ground truth everything gets diffed against, carried mojibake: the normalizer wrote `≥` as `â‰¥` through a default-encoding write, and the corruption was baked into the regression baseline itself. First lesson of building the gate: verify the goldens before trusting the goldens.
-2. **Polite abstention can hide a dead feature.** The lab gate never ran, and it never ran loudly enough to look correct: `MAYBE (no data for lab_result)` reads like caution, not breakage. 7 of 25 admissions were wrong. Abstention needs an eval that counts what abstains and asks why.
-3. **A threshold you cannot derive is an opinion.** Labelling 17 exemplars took an evening and killed 2 of 3 thresholds. The honest state, 0 of 3 derived, now lives in CI as a pinned expectation instead of in my head as an intention.
-4. **Small formulas rot quietly.** `days // 365` overstated a patient's age by one year, disagreeing with the age written in her own clinical note; the uppercase `CHF` synonym key was unreachable below a lowercasing lookup, so every CHF synonym was dead code. Both were caught by the first real test pass, neither changed a decision, both are the kind of thing that eventually does.
+1. **The baseline can be the bug.** The committed outputs carried mojibake: the normalizer wrote `≥` as `â‰¥` through a default-encoding write, and the corruption sat inside the regression baseline itself. Verify the goldens before trusting the goldens.
+2. **Polite abstention can hide a dead feature.** The lab gate never ran, and `MAYBE (no data for lab_result)` read like caution rather than breakage. 7 of 25 admissions were wrong. Count what abstains, and ask why.
+3. **A threshold you cannot derive is an opinion.** Labelling 17 exemplars took an evening and killed 2 of 3 thresholds. The result now lives in CI as a pinned expectation instead of in my head as an intention.
+4. **Small formulas rot quietly.** `days // 365` overstated a patient's age by one year against her own clinical note. An uppercase `CHF` synonym key sat unreachable below a lowercasing lookup. The first real test pass caught both. Neither changed a decision; both are the kind that eventually does.
 
 ## The numbers
 
@@ -124,17 +143,19 @@ The threshold derivation reads its exemplars from `evals/labels.csv`. Each row q
 | wrong admissions caught | 7 of 25 oncology decisions flipped True to False | lab-gate fix, measured in the fixing commit's diff |
 | bugs found while building the gate | 4 (encoding, lab gate, age drift, dead synonyms) | the commit history of this hardening pass |
 
-`tools/readme_numbers.py --check` regenerates the first five rows from the artifacts they cite on every CI run; the last two are historical measurements recorded in their commits.
+`tools/readme_numbers.py --check` regenerates the first five rows from their artifacts on every CI run. The last two are historical measurements, recorded in their commits.
 
 ## What ships here, and what does not
 
-Ships and runs on a fresh clone: the full pipeline, the tests, the golden gate, the threshold derivation, Docker and compose files, and all the data (25 synthetic patients, 2 protocols). Zero PHI by construction: every patient, note, and lab value is synthetic.
+Everything runs on a fresh clone: pipeline, tests, golden gate, threshold derivation, Docker files, and all the data. Zero PHI by construction: every patient, note, and lab value is synthetic.
 
-Not claimed: production traffic, clinician validation, or clinical validity of any decision. No LLM anywhere: this is classical NLP plus sentence embeddings, which is the honest tool for a pipeline whose selling point is that you can re-derive its every verdict by hand.
+Not claimed: production traffic, clinician validation, or clinical validity of any decision. No LLM anywhere. Classical NLP plus sentence embeddings, chosen so every verdict stays re-derivable by hand.
 
 ## Quick start
 
-Free path first, no model download:
+Needs python3 and make. Docker is optional, and the ~60MB model download happens only on the full paths.
+
+Free path, no model:
 
 ```bash
 make setup        # venv + pinned deps + pytest
@@ -142,14 +163,14 @@ make test         # 41 tests, deterministic core only
 make eval         # golden dry run + threshold derivation
 ```
 
-The full pipeline (downloads the MiniLM model, ~60MB, on first run):
+Full pipeline:
 
 ```bash
 make run          # evaluate all 25 patients against both protocols
 make eval-full    # recompute all 50 decisions against the goldens
 ```
 
-Or containerized:
+Containerized:
 
 ```bash
 make docker-build
@@ -159,13 +180,13 @@ make docker-run
 ## What this cannot tell you
 
 - Whether a patient is actually eligible. The data is synthetic and no clinician has reviewed the criteria logic. This repo demonstrates decision auditability, not clinical truth.
-- Whether a note asserts or denies a concept. Cosine similarity is negation-blind, the 0.51 active-smoker row proves it, and absence-phrased criteria ("no personal history of malignancy") are matched by the very words they negate. Real clinical NLP needs negation handling and entity-level extraction; this instrument knows only nearness.
-- Whether the thresholds generalize. They are refuted at n=17 labels from one labeller; more labels would move the edges, and the derivation harness exists precisely so that moving them is a measured act.
+- Whether a note asserts or denies a concept. Cosine similarity is negation-blind; the 0.51 active-smoker row proves it. Absence criteria, like "no personal history of malignancy", are matched by the very words they negate.
+- Whether the thresholds generalize. They are refuted at 17 labels from one labeller. More labels would move the edges, and the harness exists so that moving them is a measured act.
 
 ## Roadmap
 
-- Drift monitoring on the semantic score distributions, designed but not running: the honest state is that nothing here watches production, because nothing here is in production.
-- Negation-aware matching for absence-phrased criteria, evaluated against the same labels that refuted the current thresholds.
+- Drift monitoring on the score distributions. Nothing here watches production, because nothing here is in production.
+- Negation-aware matching, evaluated against the same labels that refuted the current thresholds.
 - A second labeller for `evals/labels.csv`, so the refutation carries inter-rater weight.
 - A small Streamlit review UI for the MAYBE queue.
 
