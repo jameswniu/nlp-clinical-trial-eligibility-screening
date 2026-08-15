@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" role="img" aria-label="Clinical trial eligibility screening that abstains instead of guessing: 50 golden decisions replayed in CI, 67 of 550 criterion verdicts abstain and say why, and hand-checking the shipped outputs caught 7 wrong admissions">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" role="img" aria-label="Clinical trial eligibility screening that abstains instead of guessing: 200 golden patients across two tiers, 70 planted traps with 30 known-wrong verdicts pinned, 7 of 25 wrong admissions caught by hand, and a 1,000-patient benchmark at 35.3 patients per second">
   <defs>
     <linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0e1613"/>
@@ -18,19 +18,19 @@
   <text x="600" y="96" class="ht">Clinical Trial Eligibility Screening</text>
   <text x="600" y="146" class="hs">Evidence-cited verdicts that <tspan class="kw">abstain instead of guessing</tspan>, gated in CI</text>
 
-  <text x="195"  y="240" class="num">50</text>
-  <text x="195"  y="278" class="lab">decisions</text>
-  <text x="195"  y="306" class="lab">25 patients x 2</text>
+  <text x="195"  y="240" class="num">200</text>
+  <text x="195"  y="278" class="lab">golden patients</text>
+  <text x="195"  y="306" class="lab">two tiers: 25 + 175</text>
 
-  <text x="465" y="240" class="num">67 / 550</text>
-  <text x="465" y="278" class="lab">verdicts abstain,</text>
-  <text x="465" y="306" class="lab">each names its gap</text>
+  <text x="465" y="240" class="num">70</text>
+  <text x="465" y="278" class="lab">planted traps,</text>
+  <text x="465" y="306" class="lab">30 known-wrong</text>
 
   <text x="735" y="240" class="num">7 / 25</text>
   <text x="735" y="278" class="lab">wrong admissions</text>
   <text x="735" y="306" class="lab">caught by hand</text>
 
-  <text x="1005" y="240" class="num">41</text>
-  <text x="1005" y="278" class="lab">tests, no model</text>
-  <text x="1005" y="306" class="lab">needed to run</text>
+  <text x="1005" y="240" class="num">1,000</text>
+  <text x="1005" y="278" class="lab">patient batch,</text>
+  <text x="1005" y="306" class="lab">35.3 patients/s</text>
 </svg>

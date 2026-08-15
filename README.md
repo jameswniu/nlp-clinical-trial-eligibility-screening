@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/hero.svg" alt="Clinical trial eligibility screening that abstains instead of guessing: 50 golden decisions replayed in CI, 67 of 550 criterion verdicts abstain and say why, and hand-checking the shipped outputs caught 7 wrong admissions" width="100%"></p>
+<p align="center"><img src="assets/hero.svg" alt="Clinical trial eligibility screening that abstains instead of guessing: 200 golden patients across two tiers, 70 planted traps with 30 known-wrong verdicts pinned, 7 of 25 wrong admissions caught by hand, and a 1,000-patient benchmark at 35.3 patients per second" width="100%"></p>
 
 <div align="center">
 
@@ -27,7 +27,7 @@ and the gate that caught them now runs in CI, guarding even its own refuted thre
 
 ## The 90 second tour
 
-Every verdict ships with its evidence, and CI replays all 50 golden decisions plus the threshold audit on every push.
+Every verdict ships with its evidence, and CI replays the 50 verified decisions, the 350-decision pinned cohort, and the threshold audit on every push.
 
 | if you want | go to |
 | --- | --- |
@@ -85,7 +85,7 @@ So no cutoff on that axis separates supported from unsupported. The split is pin
 
 ## Architecture
 
-<p align="center"><img src="assets/architecture.svg" alt="Data flow: protocol YAMLs, patient CSVs, and clinical notes are normalized into profiles and criteria, evaluated down a structured lane and a MiniLM semantic lane, and emitted as per-criterion verdicts with evidence strings and confidence; a golden-dataset gate replays all 50 decisions in CI" width="100%"></p>
+<p align="center"><img src="assets/architecture.svg" alt="Data flow: protocol YAMLs, patient CSVs, and clinical notes are normalized into profiles and criteria, evaluated down a structured lane and a MiniLM semantic lane, and emitted as per-criterion verdicts with evidence strings and confidence; a golden-dataset gate replays the 50 verified and 350 pinned decisions in CI" width="100%"></p>
 
 Six small modules, one direction of flow, and a gate underneath the whole thing.
 
@@ -114,7 +114,7 @@ flowchart TD
     end
     V["PASS / MAYBE / FAIL per criterion<br/>evidence string + score"]
     O["orchestrator.py<br/>confidence, sort, JSON"]
-    G["the gate: 50 golden decisions<br/>replayed in CI"]
+    G["the gate: 50 verified + 350 pinned<br/>decisions replayed in CI"]
 
     P --> S
     C --> L
@@ -144,13 +144,14 @@ Free tier first: no model, no network beyond pip. The `checks` job runs these co
 python -m pytest -m "not slow" -v      # 41 tests over the deterministic core
 python evals/suite.py --dry-run        # goldens: 50 decisions, closed verdict
                                        # vocabulary, confidence re-derivation,
-                                       # any-FAIL invariant, input schemas
+                                       # any-FAIL invariant, input schemas,
+                                       # cohort trap audit vs the ledger
 python evals/derive.py                 # thresholds vs labels, refutation pinned
 python tools/readme_numbers.py --check # every counted number in this README
                                        # regenerates from its artifact
 ```
 
-The `eval-full` job recomputes all 50 decisions with the real MiniLM stack. Eligibility and per-criterion verdicts must match the goldens exactly. Scores get a 0.02 tolerance, because embedding stacks differ across torch builds and a real regression moves a verdict, not a third decimal. Last recorded run: 50 of 50 decisions agree, 17 of 17 labelled scores re-measured within tolerance (`evals/last_full_run.json`, committed).
+The `eval-full` job recomputes all 50 verified decisions with the real MiniLM stack and replays the 350-decision pinned cohort exactly. Eligibility and per-criterion verdicts must match the goldens exactly. Scores get a 0.02 tolerance, because embedding stacks differ across torch builds and a real regression moves a verdict, not a third decimal. Last recorded run: 50 of 50 decisions agree, 17 of 17 labelled scores re-measured within tolerance, 350 of 350 pinned decisions matched (`evals/last_full_run.json`, committed).
 
 Threshold exemplars live in `evals/labels.csv`. Each row quotes the score the shipped output carries for that patient and criterion, and derive.py fails if any quoted score stops appearing verbatim. A label cannot drift from the artifact it cites.
 
@@ -226,7 +227,7 @@ Full pipeline:
 
 ```bash
 make run          # evaluate all 25 patients against both protocols
-make eval-full    # recompute all 50 decisions against the goldens
+make eval-full    # recompute tier 1 + replay the pinned cohort
 ```
 
 Containerized:

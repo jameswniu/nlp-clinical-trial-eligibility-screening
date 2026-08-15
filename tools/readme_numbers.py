@@ -122,8 +122,8 @@ def svg_needles(n):
     hero = os.path.join(ROOT, "assets", "hero.svg")
     with open(hero, encoding="utf-8") as fh:
         text = fh.read()
-    want = [f">{n['decisions']}<", f"{n['abstentions']} / {n['criterion_verdicts']}",
-            f">{n['tests']}<"]
+    want = [f">{n['decisions'] // 2 + n['cohort_patients']}<", f">{n['traps']}<",
+            f">{n['bench_patients']:,}<", f"{n['bench_pps']:g} patients/s"]
     return [(w, w in text) for w in want]
 
 
